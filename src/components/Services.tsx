@@ -10,7 +10,7 @@ function BlurImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      className="h-full w-full object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
+      className="h-full w-full object-contain object-right transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
     />
   );
 }
@@ -25,7 +25,7 @@ export default function Services() {
       Icon: BrainCircuit,
       href: "#",
       cta: t("services.cta"),
-      image: "https://placehold.co/800x600/1a1a1a/333333?text=AI",
+      image: "/ai-backdrop.png",
       colSpan: "lg:col-span-3",
     },
     {
@@ -34,7 +34,7 @@ export default function Services() {
       Icon: Globe,
       href: "#",
       cta: t("services.cta"),
-      image: "https://placehold.co/800x600/1a1a1a/333333?text=Web",
+      image: "/web-backdrop.png",
       colSpan: "lg:col-span-3",
     },
     {
@@ -43,7 +43,7 @@ export default function Services() {
       Icon: Smartphone,
       href: "#",
       cta: t("services.cta"),
-      image: "https://placehold.co/800x600/1a1a1a/333333?text=Mobile",
+      image: "/mobile-backdrop.png",
       colSpan: "lg:col-span-4",
     },
     {
