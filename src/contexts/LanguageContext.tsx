@@ -17,13 +17,17 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 const translations = {
   en: {
-    "hero.title": "Your custom software development partner",
+    "hero.title.before": "Your ",
+    "hero.title.highlight": "custom software",
+    "hero.title.after": " development partner",
     "hero.subtitle": "We help businesses solve real problems through digital solutions, automation, and technology that scales with you.",
     "hero.cta": "Let's Talk",
     "hero.cta.secondary": "Case Studies",
   } as Record<string, string>,
   ro: {
-    "hero.title": "Partenerul tău în dezvoltare software la comandă",
+    "hero.title.before": "Partenerul tău în dezvoltare ",
+    "hero.title.highlight": "software la comandă",
+    "hero.title.after": "",
     "hero.subtitle": "Ajutăm companiile să rezolve probleme reale prin soluții digitale, automatizare și tehnologie care crește odată cu tine.",
     "hero.cta": "Hai să discutăm",
     "hero.cta.secondary": "Studii de caz",
@@ -57,10 +61,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   const t = (key: string): string => {
-    return (
-      translations[language][key as keyof (typeof translations)[typeof language]] ||
-      key
-    );
+    const value = translations[language][key as keyof (typeof translations)[typeof language]];
+    return value !== undefined ? value : key;
   };
 
   const value: LanguageContextType = {

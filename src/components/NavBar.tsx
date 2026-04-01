@@ -38,12 +38,12 @@ export default function NavBar() {
       }`}
     >
       <div className="relative mx-auto max-w-[1440px] px-6">
-        {/* Background pill - fades in and compacts on scroll */}
+        {/* Background pill - fades in on scroll (desktop only) */}
         <div
-          className={`absolute top-0 bottom-0 rounded-full transition-all duration-300 ease-in-out ${
+          className={`absolute top-0 bottom-0 left-0 right-0 rounded-full transition-all duration-300 ease-in-out hidden xl:block ${
             scrolled
-              ? "left-0 right-0 opacity-100 backdrop-blur-md bg-background/80 border border-border shadow-sm"
-              : "-left-12 -right-12 opacity-0"
+              ? "opacity-100 backdrop-blur-md bg-background/80 border border-border shadow-sm"
+              : "opacity-0"
           }`}
         />
 
@@ -68,14 +68,14 @@ export default function NavBar() {
           </Link>
 
           {/* Desktop Controls */}
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile/Tablet Hamburger */}
           <Sheet>
-            <SheetTrigger asChild className="sm:hidden">
+            <SheetTrigger asChild className="lg:hidden">
               <button className="p-2 text-foreground">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
