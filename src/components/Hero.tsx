@@ -51,7 +51,7 @@ export default function Hero() {
           onAnimationComplete={() => setShowSpotlight(true)}
           className="flex flex-row flex-wrap items-center gap-3 xl:gap-4 mt-10 md:mt-12 xl:absolute xl:bottom-24 xl:right-6"
         >
-          <Button className="h-10 lg:h-10 bg-primary text-primary-foreground hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white transition-colors text-base px-6">
+          <Button className="h-10 lg:h-10 bg-primary text-primary-foreground hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors text-base px-6">
             {t("hero.cta")}
           </Button>
 
