@@ -28,10 +28,11 @@ import {
 } from "./ui/accordion";
 import { motion } from "motion/react";
 import { services } from "@/config/services";
+import { companyLinks } from "@/config/company";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,42 +68,73 @@ export default function NavBar() {
 
         {/* Content - stays in place */}
         <div className="relative flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/">
-            <Image
-              src="/lg-black.svg"
-              alt="Lagrange Engineering"
-              width={48}
-              height={48}
-              className="block dark:hidden"
-            />
-            <Image
-              src="/lg-white.svg"
-              alt="Lagrange Engineering"
-              width={48}
-              height={48}
-              className="hidden dark:block"
-            />
-          </Link>
+          {/* Logo and Nav Links */}
+          <div className="flex items-center gap-8">
+            {/* Logo */}
+            <Link href="/">
+              <Image
+                src="/lg-black.svg"
+                alt="Lagrange Engineering"
+                width={48}
+                height={48}
+                className="block dark:hidden"
+              />
+              <Image
+                src="/lg-white.svg"
+                alt="Lagrange Engineering"
+                width={48}
+                height={48}
+                className="hidden dark:block"
+              />
+            </Link>
+
+            {/* Desktop Nav Links */}
+            <div className="hidden lg:flex items-center gap-6">
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger className="group flex items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors outline-none">
+                  {t("nav.services")}
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-56">
+                  {services.map((service) => (
+                    <DropdownMenuItem key={service.titleKey} asChild>
+                      <a href={service.href} className="flex items-center gap-2 cursor-pointer">
+                        <service.Icon className="h-4 w-4" />
+                        {t(service.titleKey)}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger className="group flex items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors outline-none">
+                  {t("nav.company")}
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-56">
+                  {companyLinks.map((link) => (
+                    <DropdownMenuItem key={link.titleKey} asChild>
+                      <a href={link.href} className="flex items-center gap-2 cursor-pointer">
+                        <link.Icon className="h-4 w-4" />
+                        {t(link.titleKey)}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Link
+                href={`/${language}/contact`}
+                className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+              >
+                {t("nav.contact")}
+              </Link>
+            </div>
+          </div>
 
           {/* Desktop Controls */}
           <div className="hidden lg:flex items-center gap-6">
-            <DropdownMenu modal={false}>
-              <DropdownMenuTrigger className="group flex items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors outline-none">
-                {t("nav.services")}
-                <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                {services.map((service) => (
-                  <DropdownMenuItem key={service.titleKey} asChild>
-                    <a href={service.href} className="flex items-center gap-2 cursor-pointer">
-                      <service.Icon className="h-4 w-4" />
-                      {t(service.titleKey)}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
@@ -120,28 +152,58 @@ export default function NavBar() {
                 <SheetTitle>{t("nav.settings")}</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-8 mt-8">
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="services" className="border-b-0">
-                    <AccordionTrigger className="text-sm font-medium py-0 hover:no-underline">
-                      {t("nav.services")}
-                    </AccordionTrigger>
-                    <AccordionContent className="pt-4 pb-0">
-                      <ul className="flex flex-col gap-3">
-                        {services.map((service) => (
-                          <li key={service.titleKey}>
-                            <a
-                              href={service.href}
-                              className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
-                            >
-                              <service.Icon className="h-4 w-4" />
-                              {t(service.titleKey)}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                <div className="flex flex-col gap-4">
+                  <Accordion type="single" collapsible className="w-full space-y-4">
+                    <AccordionItem value="services" className="border-b-0">
+                      <AccordionTrigger className="text-sm font-medium py-0 hover:no-underline">
+                        {t("nav.services")}
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-0">
+                        <ul className="flex flex-col gap-3">
+                          {services.map((service) => (
+                            <li key={service.titleKey}>
+                              <a
+                                href={service.href}
+                                className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                              >
+                                <service.Icon className="h-4 w-4" />
+                                {t(service.titleKey)}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="company" className="border-b-0">
+                      <AccordionTrigger className="text-sm font-medium py-0 hover:no-underline">
+                        {t("nav.company")}
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-0">
+                        <ul className="flex flex-col gap-3">
+                          {companyLinks.map((link) => (
+                            <li key={link.titleKey}>
+                              <a
+                                href={link.href}
+                                className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                              >
+                                <link.Icon className="h-4 w-4" />
+                                {t(link.titleKey)}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+
+                  <Link
+                    href={`/${language}/contact`}
+                    className="text-sm font-medium text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100 transition-colors"
+                  >
+                    {t("nav.contact")}
+                  </Link>
+                </div>
 
                 <div className="border-t border-border" />
 

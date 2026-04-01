@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -40,7 +41,8 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <NavBar />
-            <main className="min-h-screen max-w-site mx-auto">{children}</main>
+            <main>{children}</main>
+            <Footer />
           </LanguageProvider>
         </ThemeProvider>
       </body>

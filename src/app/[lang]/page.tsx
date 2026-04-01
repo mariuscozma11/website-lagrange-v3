@@ -1,13 +1,15 @@
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import Footer from "@/components/Footer";
+import CaseStudiesCTA from "@/components/CaseStudiesCTA";
+import ContactCTA from "@/components/ContactCTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Services />
-      <Footer />
+      <CaseStudiesCTA />
+      <ContactCTA />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { Instagram, Facebook, Github, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
 import { services } from "@/config/services";
+import { companyLinks } from "@/config/company";
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
@@ -102,26 +103,16 @@ export default function Footer() {
             {t("footer.company")}
           </h3>
           <ul className="flex flex-col gap-2">
-            <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
-                {t("footer.blog")}
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
-                {t("footer.caseStudies")}
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
-                {t("footer.demos")}
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
-                {t("footer.about")}
-              </a>
-            </li>
+            {companyLinks.map((link) => (
+              <li key={link.titleKey}>
+                <a
+                  href={link.href}
+                  className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                >
+                  {t(link.titleKey)}
+                </a>
+              </li>
+            ))}
           </ul>
         </motion.div>
 
