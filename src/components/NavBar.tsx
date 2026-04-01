@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Sheet,
   SheetContent,
@@ -17,11 +18,15 @@ import { motion } from "motion/react";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
+
+    // Check initial scroll position on mount
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,8 +38,8 @@ export default function NavBar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       style={{ opacity: 0 }}
-      className={`sticky text-sm z-40 transition-[top] duration-700 ease-in-out ${
-        scrolled ? "top-4" : "top-1"
+      className={`text-sm z-40 xl:sticky xl:transition-[top] xl:duration-700 xl:ease-in-out ${
+        scrolled ? "xl:top-4" : "xl:top-1"
       }`}
     >
       <div className="relative mx-auto max-w-[1440px] px-6">
@@ -83,15 +88,15 @@ export default function NavBar() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>Settings</SheetTitle>
+                <SheetTitle>{t("nav.settings")}</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-6 mt-8">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Language</span>
+                  <span className="text-sm font-medium">{t("nav.language")}</span>
                   <LanguageSwitcher />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Theme</span>
+                  <span className="text-sm font-medium">{t("nav.theme")}</span>
                   <ThemeToggle />
                 </div>
               </div>
