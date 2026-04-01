@@ -1,0 +1,34 @@
+{
+  "name": "Lagrange Engineering",
+  "short_name": "Lagrange",
+  "description": "Romanian technology company providing web development, custom applications, and high-quality digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/lg-white.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lg-black.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "lang": "ro",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "lagrange-engineering"
+}
