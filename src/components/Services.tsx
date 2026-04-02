@@ -16,7 +16,7 @@ function BlurImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function Services() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="max-w-[1440px] mx-auto pt-8 xl:pt-12 pb-16 xl:pb-24 px-6">
@@ -34,7 +34,7 @@ export default function Services() {
               name={t(service.titleKey)}
               description={t(service.descriptionKey)}
               Icon={service.Icon}
-              href={service.href}
+              href={`/${language}${service.href}`}
               cta={t("services.cta")}
               className="h-full"
               background={<BlurImage src={service.image} alt={t(service.titleKey)} />}

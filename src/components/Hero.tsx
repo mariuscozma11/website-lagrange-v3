@@ -38,7 +38,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-8 md:mt-10 max-w-xl text-base text-neutral-600 md:text-lg dark:text-neutral-400"
         >
           {t("hero.subtitle")}
@@ -47,7 +47,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           onAnimationComplete={() => setShowSpotlight(true)}
           className="flex flex-row flex-wrap items-center gap-3 xl:gap-4 mt-10 md:mt-12 xl:absolute xl:bottom-24 xl:right-6"
         >

@@ -1,0 +1,1 @@
+- Aplicatii vision industriale: de ce ai vrea o camera dummy, in loc de o camera smart.

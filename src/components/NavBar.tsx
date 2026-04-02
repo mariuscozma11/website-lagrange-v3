@@ -32,6 +32,7 @@ import { companyLinks } from "@/config/company";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const { t, language } = useLanguage();
 
   useEffect(() => {
@@ -98,10 +99,10 @@ export default function NavBar() {
                 <DropdownMenuContent align="start" className="w-56">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.titleKey} asChild>
-                      <a href={service.href} className="flex items-center gap-2 cursor-pointer">
+                      <Link href={`/${language}${service.href}`} className="flex items-center gap-2 cursor-pointer">
                         <service.Icon className="h-4 w-4" />
                         {t(service.titleKey)}
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -140,7 +141,7 @@ export default function NavBar() {
           </div>
 
           {/* Mobile/Tablet Hamburger */}
-          <Sheet>
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <button className="p-2 text-foreground">
                 <Menu className="h-5 w-5" />
@@ -162,13 +163,14 @@ export default function NavBar() {
                         <ul className="flex flex-col gap-3">
                           {services.map((service) => (
                             <li key={service.titleKey}>
-                              <a
-                                href={service.href}
+                              <Link
+                                href={`/${language}${service.href}`}
+                                onClick={() => setSheetOpen(false)}
                                 className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                               >
                                 <service.Icon className="h-4 w-4" />
                                 {t(service.titleKey)}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -185,6 +187,7 @@ export default function NavBar() {
                             <li key={link.titleKey}>
                               <a
                                 href={link.href}
+                                onClick={() => setSheetOpen(false)}
                                 className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                               >
                                 <link.Icon className="h-4 w-4" />
@@ -199,6 +202,7 @@ export default function NavBar() {
 
                   <Link
                     href={`/${language}/contact`}
+                    onClick={() => setSheetOpen(false)}
                     className="text-sm font-medium text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100 transition-colors"
                   >
                     {t("nav.contact")}

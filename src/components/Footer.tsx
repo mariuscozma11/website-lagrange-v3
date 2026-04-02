@@ -16,7 +16,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="max-w-[1440px] mx-auto pt-16 xl:pt-24 pb-6 px-6">
@@ -80,12 +80,12 @@ export default function Footer() {
           <ul className="flex flex-col gap-2">
             {services.map((service) => (
               <li key={service.titleKey}>
-                <a
-                  href={service.href}
+                <Link
+                  href={`/${language}${service.href}`}
                   className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                 >
                   {t(service.titleKey)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
