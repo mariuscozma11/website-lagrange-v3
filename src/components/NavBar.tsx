@@ -154,6 +154,13 @@ export default function NavBar() {
               </SheetHeader>
               <div className="flex flex-col gap-8 mt-8">
                 <div className="flex flex-col gap-4">
+                  <Link
+                    href={`/${language}`}
+                    onClick={() => setSheetOpen(false)}
+                    className="text-sm font-medium text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100 transition-colors"
+                  >
+                    {t("nav.home")}
+                  </Link>
                   <Accordion type="single" collapsible className="w-full space-y-4">
                     <AccordionItem value="services" className="border-b-0">
                       <AccordionTrigger className="text-sm font-medium py-0 hover:no-underline">

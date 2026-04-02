@@ -5,6 +5,10 @@ import { motion } from "motion/react";
 import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
+import CVDetection from "@/components/interactive/CVDetection";
+import OCRScan from "@/components/interactive/OCRScan";
+import ASRTranscribe from "@/components/interactive/ASRTranscribe";
+import LLMChat from "@/components/interactive/LLMChat";
 
 const technologies: Technology[] = [
   { name: "TensorFlow", image: "/tech/tensorflow.svg" },
@@ -34,21 +38,25 @@ const aiServices = [
     titleKey: "services.ai.cv.title",
     descriptionKey: "services.ai.cv.description",
     tag: "computer-vision",
+    element: <CVDetection />,
   },
   {
     titleKey: "services.ai.ocr.title",
     descriptionKey: "services.ai.ocr.description",
     tag: "ocr",
+    element: <OCRScan />,
   },
   {
     titleKey: "services.ai.asr.title",
     descriptionKey: "services.ai.asr.description",
     tag: "speech-recognition",
+    element: <ASRTranscribe />,
   },
   {
     titleKey: "services.ai.llm.title",
     descriptionKey: "services.ai.llm.description",
     tag: "llm",
+    element: <LLMChat />,
   },
 ];
 

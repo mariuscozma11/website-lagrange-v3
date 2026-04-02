@@ -20,7 +20,7 @@ interface ServicesListProps {
 
 function DefaultPlaceholder() {
   return (
-    <div className="w-full aspect-square max-w-md rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900">
+    <div className="w-full aspect-square rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900">
       <span className="text-neutral-400 dark:text-neutral-600 text-sm">
         Interactive element
       </span>
@@ -46,12 +46,14 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
             className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-16`}
           >
             {/* Interactive Element */}
-            <div className="flex-1 flex justify-center">
-              {service.element || <DefaultPlaceholder />}
+            <div className="w-full lg:flex-1 flex justify-center">
+              <div className="w-full max-w-md lg:max-w-none">
+                {service.element || <DefaultPlaceholder />}
+              </div>
             </div>
 
             {/* Content */}
-            <div className="flex-1">
+            <div className="w-full lg:flex-1">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-neutral-800 dark:text-neutral-200">
                 {t(service.titleKey)}
               </h2>
