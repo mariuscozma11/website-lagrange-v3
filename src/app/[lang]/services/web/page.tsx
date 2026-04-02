@@ -5,6 +5,12 @@ import { motion } from "motion/react";
 import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
+import DashboardDemo from "@/components/interactive/DashboardDemo";
+import EcommerceDemo from "@/components/interactive/EcommerceDemo";
+import CMSPublish from "@/components/interactive/CMSPublish";
+import LMSQuiz from "@/components/interactive/LMSQuiz";
+import LighthouseScore from "@/components/interactive/LighthouseScore";
+import DesktopApp from "@/components/interactive/DesktopApp";
 
 const technologies: Technology[] = [
   { name: "Vite", image: "/tech/vite.svg" },
@@ -34,31 +40,37 @@ const webServices = [
     titleKey: "services.web.apps.title",
     descriptionKey: "services.web.apps.description",
     tag: "web-applications",
+    element: <DashboardDemo />,
   },
   {
     titleKey: "services.web.commerce.title",
     descriptionKey: "services.web.commerce.description",
     tag: "ecommerce",
+    element: <EcommerceDemo />,
   },
   {
     titleKey: "services.web.cms.title",
     descriptionKey: "services.web.cms.description",
     tag: "cms",
+    element: <CMSPublish />,
   },
   {
     titleKey: "services.web.learning.title",
     descriptionKey: "services.web.learning.description",
     tag: "lms",
+    element: <LMSQuiz />,
   },
   {
     titleKey: "services.web.sites.title",
     descriptionKey: "services.web.sites.description",
     tag: "marketing-sites",
+    element: <LighthouseScore />,
   },
   {
     titleKey: "services.web.desktop.title",
     descriptionKey: "services.web.desktop.description",
     tag: "desktop-applications",
+    element: <DesktopApp />,
   },
 ];
 
@@ -75,7 +87,8 @@ export default function WebServicePage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-4xl text-4xl font-medium tracking-tight text-neutral-800 sm:text-5xl md:text-6xl dark:text-neutral-200"
         >
-          {t("services.web.page.title")}
+          {t("services.web.page.title")}{" "}
+          <span className="text-primary">{t("services.web.page.titleAccent")}</span>
         </motion.h1>
 
         <motion.p

@@ -1,7 +1,28 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useState } from "react";
 import Image from "next/image";
+
+function TechImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
+      {!loaded && (
+        <div className="absolute inset-0 rounded-md bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        width={48}
+        height={48}
+        className={`w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  );
+}
 
 export interface Technology {
   name: string;
@@ -62,13 +83,7 @@ function GridWithOverlays({
         >
           {tech && (
             <>
-              <Image
-                src={tech.image}
-                alt={tech.name}
-                width={48}
-                height={48}
-                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
-              />
+              <TechImage src={tech.image} alt={tech.name} />
               <span className="text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-500 font-medium text-center leading-tight">
                 {tech.name}
               </span>

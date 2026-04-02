@@ -4,6 +4,25 @@ import { useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 
+function LoadingImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-[15%] rounded-lg bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`${className} transition-opacity duration-300 ${loaded ? "opacity-60" : "opacity-0"}`}
+        onLoad={() => setLoaded(true)}
+      />
+    </>
+  );
+}
+
 const detections = [
   { label: "Person", confidence: 97, x: 6, y: 8, w: 30, h: 55, color: "#22c55e", image: "/computer-vision/running-2-svgrepo-com.svg" },
   { label: "Box", confidence: 94, x: 55, y: 10, w: 28, h: 30, color: "#3b82f6", image: "/computer-vision/box-svgrepo-com.svg" },
@@ -53,11 +72,10 @@ export default function CVDetection() {
               height: `${det.h}%`,
             }}
           >
-            <Image
+            <LoadingImage
               src={det.image}
               alt={det.label}
-              fill
-              className="object-contain opacity-60"
+              className="object-contain"
             />
           </div>
         ))}

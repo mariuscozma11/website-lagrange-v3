@@ -29,7 +29,7 @@ export const services = [
     titleKey: "services.consulting.title",
     descriptionKey: "services.consulting.description",
     Icon: MessageSquare,
-    href: "#",
+    href: "/services/consulting",
     image: "/consulting-backdrop.png",
     colSpan: "lg:col-span-2",
   },

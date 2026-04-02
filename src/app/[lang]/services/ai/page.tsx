@@ -73,7 +73,8 @@ export default function AIServicePage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-4xl text-4xl font-medium tracking-tight text-neutral-800 sm:text-5xl md:text-6xl dark:text-neutral-200"
         >
-          {t("services.ai.page.title")}
+          {t("services.ai.page.title")}{" "}
+          <span className="text-primary">{t("services.ai.page.titleAccent")}</span>
         </motion.h1>
 
         <motion.p
