@@ -100,7 +100,7 @@ export default function CaseStudiesCTA() {
               >
                 <Link
                   href={`/${language}/case-studies/${post.slug}`}
-                  className={`group block p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors ${index < posts.length - 1 ? "border-r border-dashed border-neutral-300 dark:border-neutral-700" : ""}`}
+                  className={`group block p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors border-dashed border-neutral-300 dark:border-neutral-700 ${index < posts.length - 1 ? "max-sm:border-b sm:border-r" : ""}`}
                 >
                   {/* Image */}
                   <div className="aspect-[16/10] bg-neutral-100 dark:bg-neutral-800 relative overflow-hidden mb-4">

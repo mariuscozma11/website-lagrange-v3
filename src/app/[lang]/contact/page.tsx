@@ -6,10 +6,10 @@ import { MapPin, Mail, Phone, Instagram, Facebook, Github, Linkedin } from "luci
 import ContactForm from "@/components/ContactForm";
 
 const socialLinks = [
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/lagrangeengineering/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578943962674", label: "Facebook" },
+  { icon: Github, href: "https://github.com/lagrangeengineering", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/106594690/", label: "LinkedIn" },
 ];
 
 const contactDetails = [

@@ -7,9 +7,10 @@ import { Spotlight } from "./ui/spotlight-new";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { resolvedTheme } = useTheme();
   const [showSpotlight, setShowSpotlight] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -48,12 +49,12 @@ export default function Hero() {
           onAnimationComplete={() => setShowSpotlight(true)}
           className="flex flex-row flex-wrap items-center gap-3 xl:gap-4 mt-10 md:mt-12 xl:absolute xl:bottom-24 xl:right-6"
         >
-          <Button className="h-10 lg:h-10 bg-primary text-primary-foreground hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors text-base px-6">
-            {t("hero.cta")}
+          <Button asChild className="h-10 lg:h-10 bg-primary text-primary-foreground hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors text-base px-6">
+            <Link href={`/${language}/contact`}>{t("hero.cta")}</Link>
           </Button>
 
-          <Button variant="secondary" className="h-10 lg:h-10 text-base px-6 border border-transparent hover:border-border dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors">
-            {t("hero.cta.secondary")}
+          <Button asChild variant="secondary" className="h-10 lg:h-10 text-base px-6 border border-transparent hover:border-border dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors">
+            <Link href={`/${language}/case-studies`}>{t("hero.cta.secondary")}</Link>
           </Button>
         </motion.div>
       </section>
