@@ -116,10 +116,10 @@ export default function NavBar() {
                 <DropdownMenuContent align="start" className="w-56">
                   {companyLinks.map((link) => (
                     <DropdownMenuItem key={link.titleKey} asChild>
-                      <a href={link.href} className="flex items-center gap-2 cursor-pointer">
+                      <Link href={`/${language}${link.href}`} className="flex items-center gap-2 cursor-pointer">
                         <link.Icon className="h-4 w-4" />
                         {t(link.titleKey)}
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -192,14 +192,14 @@ export default function NavBar() {
                         <ul className="flex flex-col gap-3">
                           {companyLinks.map((link) => (
                             <li key={link.titleKey}>
-                              <a
-                                href={link.href}
+                              <Link
+                                href={`/${language}${link.href}`}
                                 onClick={() => setSheetOpen(false)}
                                 className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                               >
                                 <link.Icon className="h-4 w-4" />
                                 {t(link.titleKey)}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
