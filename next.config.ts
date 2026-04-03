@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "etamade-com.github.io",
       },
+      {
+        protocol: "https",
+        hostname: "ghost-production-c7cb.up.railway.app",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
