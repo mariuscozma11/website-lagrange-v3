@@ -9,11 +9,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ghost-production-c7cb.up.railway.app",
+        hostname: "blog.lagrangeengineering.ro",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.lagrangeengineering.ro",
       },
     ],
   },
