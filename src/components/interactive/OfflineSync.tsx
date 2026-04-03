@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Play, Wifi, WifiOff, Check } from "lucide-react";
+import { Play, WifiOff, Check } from "lucide-react";
 
 export default function OfflineSync() {
   const [phase, setPhase] = useState<"idle" | "online" | "dropping" | "offline" | "syncing" | "done">("idle");

@@ -58,7 +58,7 @@ export default function ContentListing({
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
-  const debounceRef = useRef<NodeJS.Timeout>();
+  const debounceRef = useRef<NodeJS.Timeout>(undefined);
 
   // Debounce search - wait 400ms after user stops typing
   useEffect(() => {

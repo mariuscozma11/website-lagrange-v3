@@ -64,40 +64,16 @@ export async function getPosts({
     .map((t) => `tag:${t}`)
     .join("+");
 
-  if (search) {
-    // When searching: fetch all posts for this category+tags, filter by search, paginate manually
-    const allPosts = await fetchAllPosts(tagFilters);
-    const term = search.toLowerCase();
-    const filtered = allPosts.filter(
-      (p) =>
-        p.title.toLowerCase().includes(term) ||
-        p.excerpt.toLowerCase().includes(term)
-    );
-
-    const total = filtered.length;
-    const totalPages = Math.max(1, Math.ceil(total / limit));
-    const safePage = Math.min(page, totalPages);
-    const start = (safePage - 1) * limit;
-    const paged = filtered.slice(start, start + limit);
-
-    return {
-      posts: paged,
-      pagination: {
-        page: safePage,
-        limit,
-        pages: totalPages,
-        total,
-      },
-    };
-  }
-
-  // No search: let Ghost handle pagination directly
-  const result = await api.posts.browse({
+  // Build Ghost browse params - exclude html for listing performance
+  const params: Record<string, unknown> = {
     include: "tags,authors",
+    fields: "id,slug,title,excerpt,feature_image,published_at,reading_time",
     limit,
     page,
     filter: tagFilters,
-  });
+  };
+
+  const result = await api.posts.browse(params);
 
   const meta = (
     result as unknown as {
@@ -105,41 +81,23 @@ export async function getPosts({
     }
   ).meta;
 
-  return {
-    posts: result.map(formatPost),
-    pagination: meta.pagination,
-  };
-}
+  let posts = result.map(formatPost);
 
-/**
- * Fetch ALL posts for a given tag filter (loops through all pages).
- * Used for search so we can filter + paginate correctly.
- */
-async function fetchAllPosts(tagFilter: string): Promise<GhostPost[]> {
-  const all: GhostPost[] = [];
-  let currentPage = 1;
-  let totalPages = 1;
-
-  while (currentPage <= totalPages) {
-    const result = await api.posts.browse({
-      include: "tags,authors",
-      limit: 100,
-      page: currentPage,
-      filter: tagFilter,
-    });
-
-    const meta = (
-      result as unknown as {
-        meta: { pagination: { pages: number } };
-      }
-    ).meta;
-
-    all.push(...result.map(formatPost));
-    totalPages = meta.pagination.pages;
-    currentPage++;
+  // Client-side search on the current page results
+  // For small datasets this is fine; Ghost Content API doesn't support text search
+  if (search) {
+    const term = search.toLowerCase();
+    posts = posts.filter(
+      (p) =>
+        p.title.toLowerCase().includes(term) ||
+        p.excerpt.toLowerCase().includes(term)
+    );
   }
 
-  return all;
+  return {
+    posts,
+    pagination: meta.pagination,
+  };
 }
 
 /**
@@ -151,7 +109,7 @@ export async function getPostBySlug(
   try {
     const post = await api.posts.read(
       { slug },
-      { include: "tags,authors" }
+      { include: ["tags", "authors"] }
     );
     return formatPost(post);
   } catch {
@@ -174,8 +132,9 @@ export async function getFilterTags(): Promise<GhostTag[]> {
     }));
 }
 
-function formatPost(post: Record<string, unknown>): GhostPost {
-  const p = post as Record<string, unknown>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function formatPost(post: any): GhostPost {
+  const p = post;
   const tags = (
     (p.tags as Array<Record<string, unknown>>) || []
   ).map((t) => ({

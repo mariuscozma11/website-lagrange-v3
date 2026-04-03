@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Play, Check, X } from "lucide-react";
+import { Play, Check } from "lucide-react";
 
 const question = "What does API stand for?";
 const options = [

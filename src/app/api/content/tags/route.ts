@@ -4,7 +4,11 @@ import { getFilterTags } from "@/lib/ghost";
 export async function GET() {
   try {
     const tags = await getFilterTags();
-    return NextResponse.json({ tags });
+    return NextResponse.json({ tags }, {
+      headers: {
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+      },
+    });
   } catch (error) {
     console.error("Ghost API error:", error);
     return NextResponse.json(
