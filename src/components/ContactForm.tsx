@@ -18,6 +18,7 @@ export default function ContactForm() {
     const data = {
       fullname: (form.elements.namedItem("fullname") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
@@ -98,6 +99,17 @@ export default function ContactForm() {
               placeholder={t("contact.form.email.placeholder")}
               type="email"
               required
+              disabled={status === "sending"}
+            />
+          </LabelInputContainer>
+
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="phone">{t("contact.form.phone")}</Label>
+            <Input
+              id="phone"
+              name="phone"
+              placeholder={t("contact.form.phone.placeholder")}
+              type="tel"
               disabled={status === "sending"}
             />
           </LabelInputContainer>

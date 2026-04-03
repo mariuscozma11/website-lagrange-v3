@@ -18,7 +18,7 @@ function isValidEmail(email: string): boolean {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { fullname, email, company, message } = body;
+    const { fullname, email, phone, company, message } = body;
 
     // Validation
     if (!fullname || !email || !message) {
@@ -58,6 +58,7 @@ export async function POST(request: NextRequest) {
     // Sanitize for HTML email
     const safeName = sanitize(fullname);
     const safeEmail = sanitize(email);
+    const safePhone = phone ? sanitize(phone) : "";
     const safeCompany = company ? sanitize(company) : "";
     const safeMessage = sanitize(message);
 
@@ -83,6 +84,12 @@ export async function POST(request: NextRequest) {
                 <a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a>
               </td>
             </tr>
+            ${safePhone ? `
+            <tr>
+              <td style="padding: 8px 0; color: #737373; font-size: 14px; vertical-align: top;">Phone</td>
+              <td style="padding: 8px 0; color: #171717; font-size: 14px;">${safePhone}</td>
+            </tr>
+            ` : ""}
             ${safeCompany ? `
             <tr>
               <td style="padding: 8px 0; color: #737373; font-size: 14px; vertical-align: top;">Company</td>
