@@ -71,7 +71,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-4"
         >
           <h3 className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
@@ -96,7 +96,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-4"
         >
           <h3 className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
@@ -121,7 +121,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-4"
         >
           <h3 className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
@@ -129,19 +129,14 @@ export default function Footer() {
           </h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
+              <Link href={`/${language}/terms`} className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
                 {t("footer.terms")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
+              <Link href={`/${language}/privacy-policy`} className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
                 {t("footer.privacy")}
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors">
-                {t("footer.cookies")}
-              </a>
+              </Link>
             </li>
           </ul>
         </motion.div>
@@ -152,7 +147,7 @@ export default function Footer() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="mt-10 pt-6 border-t border-neutral-200 dark:border-neutral-800"
       >
         <p className="text-sm text-neutral-500 dark:text-neutral-500 text-center">

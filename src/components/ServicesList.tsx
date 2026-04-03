@@ -32,13 +32,13 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
   const { t, language } = useLanguage();
 
   return (
-    <div className="flex flex-col gap-24">
+    <div className="flex flex-col gap-16 lg:gap-24">
       {services.map((service, index) => {
         const isEven = index % 2 === 0;
 
         return (
           <motion.div
-            key={service.tag}
+            key={service.titleKey}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

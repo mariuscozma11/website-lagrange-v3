@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import FAQ from "@/components/FAQ";
+import ContactCTA from "@/components/ContactCTA";
 import {
   LayoutDashboard,
   Compass,
@@ -95,7 +96,7 @@ export default function ConsultingServicePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className={card.colSpan}
             >
               <BentoCard
@@ -120,6 +121,8 @@ export default function ConsultingServicePage() {
           items={faqItems}
         />
       </section>
+
+      <ContactCTA />
     </>
   );
 }

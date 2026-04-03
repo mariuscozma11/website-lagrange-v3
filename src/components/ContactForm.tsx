@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ContactForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [agreed, setAgreed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -148,6 +149,23 @@ export default function ContactForm() {
             />
           </LabelInputContainer>
 
+          {/* Terms agreement checkbox */}
+          <label className="flex items-start gap-2.5 mb-6 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+              disabled={status === "sending"}
+              className="mt-0.5 h-4 w-4 rounded border-neutral-300 dark:border-neutral-600 text-primary focus:ring-primary shrink-0 cursor-pointer"
+            />
+            <span className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              {t("contact.form.agree.before")}
+              <a href={`/${language}/terms`} target="_blank" className="text-primary hover:underline">{t("contact.form.agree.terms")}</a>
+              {t("contact.form.agree.and")}
+              <a href={`/${language}/privacy-policy`} target="_blank" className="text-primary hover:underline">{t("contact.form.agree.privacy")}</a>.
+            </span>
+          </label>
+
           {status === "error" && (
             <p className="mb-4 text-sm text-red-500 text-center">
               {errorMessage || t("contact.form.error")}
@@ -157,7 +175,7 @@ export default function ContactForm() {
           <button
             className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             type="submit"
-            disabled={status === "sending"}
+            disabled={status === "sending" || !agreed}
           >
             {status === "sending" ? (
               <span className="flex items-center justify-center gap-2">

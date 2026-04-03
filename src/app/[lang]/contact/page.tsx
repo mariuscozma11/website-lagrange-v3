@@ -36,8 +36,8 @@ export default function ContactPage() {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen max-w-[1440px] mx-auto px-6 py-16 lg:py-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 h-full">
+    <section className="min-h-screen max-w-[1440px] mx-auto px-6 pt-8 pb-16 lg:pt-12 lg:pb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
         {/* Left Column */}
         <div className="flex flex-col justify-center">
           <motion.h1
@@ -54,7 +54,7 @@ export default function ContactPage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="mt-6 text-neutral-600 dark:text-neutral-400 text-base md:text-lg max-w-lg"
           >
             {t("contact.description")}
@@ -64,7 +64,7 @@ export default function ContactPage() {
           <motion.ul
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="mt-10 flex flex-col gap-4"
           >
             {contactDetails.map((detail) => (
@@ -97,7 +97,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="mt-10 flex flex-col gap-3"
           >
             <span className="text-xs text-neutral-500 dark:text-neutral-500">
@@ -124,7 +124,7 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center justify-center"
         >
           <ContactForm />

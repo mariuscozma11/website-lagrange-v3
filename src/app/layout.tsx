@@ -19,8 +19,30 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lagrangeengineering.ro"),
-  title: "Lagrange Engineering",
-  description: "Lagrange Engineering",
+  title: {
+    default: "Lagrange",
+    template: "%s - Lagrange",
+  },
+  description: "Software engineering team building AI systems, web applications, and mobile apps. Based in Timisoara, Romania.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Lagrange",
+    locale: "en",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +52,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Lagrange Engineering",
+              legalName: "Lagrange Engineering SRL",
+              url: "https://lagrangeengineering.ro",
+              logo: "https://lagrangeengineering.ro/lg-black.svg",
+              email: "office@lagrangeengineering.ro",
+              telephone: "+40756109881",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2",
+                addressLocality: "Timisoara",
+                addressRegion: "Timis",
+                postalCode: "300323",
+                addressCountry: "RO",
+              },
+              sameAs: [],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >

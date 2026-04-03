@@ -2,13 +2,51 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
-import { CardContainer, CardBody, CardItem } from "./ui/3d-card";
-import { caseStudies } from "@/config/caseStudies";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import type { GhostPost } from "@/lib/ghost";
+
+function PostImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-neutral-100 dark:bg-neutral-800">
+          <div className="w-6 h-6 rounded-full border-2 border-neutral-300 dark:border-neutral-600 border-t-primary animate-spin" />
+        </div>
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`object-cover transition-all duration-500 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
+        onLoad={() => setLoaded(true)}
+      />
+    </>
+  );
+}
 
 export default function CaseStudiesCTA() {
   const { t, language } = useLanguage();
+  const [posts, setPosts] = useState<GhostPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCaseStudies() {
+      try {
+        const res = await fetch("/api/content?category=case-studies&limit=3");
+        const data = await res.json();
+        setPosts(data.posts || []);
+      } catch {
+        setPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCaseStudies();
+  }, []);
 
   return (
     <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
@@ -34,57 +72,94 @@ export default function CaseStudiesCTA() {
       </motion.div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {caseStudies.map((study, index) => (
-          <motion.div
-            key={study.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-          >
-            <CardContainer containerClassName="w-full">
-              <CardBody className="relative group/card w-full h-auto rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
-                {/* Cover Image */}
-                <CardItem translateZ="100" className="w-full">
-                  <img
-                    src={study.image}
-                    alt={t(study.titleKey)}
-                    className="w-full aspect-video object-cover rounded-xl"
-                  />
-                </CardItem>
-
-                {/* Title */}
-                <CardItem
-                  translateZ="50"
-                  className="text-base font-semibold text-neutral-800 dark:text-white mt-4"
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+        {loading
+          ? Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className={`p-4 ${i < 2 ? "border-r border-dashed border-neutral-300 dark:border-neutral-700" : ""}`}>
+                <div className="aspect-[16/10] bg-neutral-100 dark:bg-neutral-800 relative mb-4 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full border-2 border-neutral-300 dark:border-neutral-600 border-t-primary animate-spin" />
+                  <div className="absolute top-1.5 left-1.5 w-3 h-3 border-t border-l border-neutral-400/40 dark:border-neutral-500/40" />
+                  <div className="absolute top-1.5 right-1.5 w-3 h-3 border-t border-r border-neutral-400/40 dark:border-neutral-500/40" />
+                  <div className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b border-l border-neutral-400/40 dark:border-neutral-500/40" />
+                  <div className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b border-r border-neutral-400/40 dark:border-neutral-500/40" />
+                </div>
+                <div className="space-y-2">
+                  <div className="h-1.5 w-16 rounded bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+                  <div className="h-2.5 w-[80%] rounded bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+                  <div className="h-1.5 w-[60%] rounded bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+                </div>
+              </div>
+            ))
+          : posts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <Link
+                  href={`/${language}/case-studies/${post.slug}`}
+                  className={`group block p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors ${index < posts.length - 1 ? "border-r border-dashed border-neutral-300 dark:border-neutral-700" : ""}`}
                 >
-                  {t(study.titleKey)}
-                </CardItem>
+                  {/* Image */}
+                  <div className="aspect-[16/10] bg-neutral-100 dark:bg-neutral-800 relative overflow-hidden mb-4">
+                    {post.feature_image ? (
+                      <PostImage src={post.feature_image} alt={post.title} />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded bg-primary/10" />
+                      </div>
+                    )}
+                    {/* Corner brackets */}
+                    <div className="absolute top-1.5 left-1.5 w-3 h-3 border-t border-l border-neutral-400/40 dark:border-neutral-500/40" />
+                    <div className="absolute top-1.5 right-1.5 w-3 h-3 border-t border-r border-neutral-400/40 dark:border-neutral-500/40" />
+                    <div className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b border-l border-neutral-400/40 dark:border-neutral-500/40" />
+                    <div className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b border-r border-neutral-400/40 dark:border-neutral-500/40" />
+                  </div>
 
-                {/* Description */}
-                <CardItem
-                  as="p"
-                  translateZ="40"
-                  className="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2"
-                >
-                  {t(study.excerptKey)}
-                </CardItem>
+                  {/* Meta */}
+                  <div className="flex items-center gap-2 mb-2 font-mono text-[10px] text-neutral-400 dark:text-neutral-500">
+                    {post.authors[0] && <span>{post.authors[0].name}</span>}
+                    <span className="text-neutral-300 dark:text-neutral-600">/</span>
+                    <span>
+                      {new Date(post.published_at).toLocaleDateString(
+                        language === "ro" ? "ro-RO" : "en-US",
+                        { month: "short", day: "numeric", year: "numeric" }
+                      )}
+                    </span>
+                    {post.reading_time > 0 && (
+                      <>
+                        <span className="text-neutral-300 dark:text-neutral-600">/</span>
+                        <span>{post.reading_time} min</span>
+                      </>
+                    )}
+                  </div>
 
-                {/* Learn More Link */}
-                <CardItem
-                  translateZ="30"
-                  as={Link}
-                  href={`/${language}${study.href}`}
-                  className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors mt-4 group/link"
-                >
-                  {t("caseStudies.cta")}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                </CardItem>
-              </CardBody>
-            </CardContainer>
-          </motion.div>
-        ))}
+                  {/* Title */}
+                  <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  {/* Excerpt */}
+                  <p className="mt-1.5 text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag.slug}
+                        className="text-[9px] font-mono font-medium text-neutral-500 dark:text-neutral-400 border border-dashed border-neutral-300 dark:border-neutral-600 px-2 py-0.5"
+                      >
+                        {tag.name}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
       </div>
     </section>
   );

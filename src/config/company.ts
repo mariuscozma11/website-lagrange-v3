@@ -19,6 +19,6 @@ export const companyLinks = [
   {
     titleKey: "footer.about",
     Icon: Users,
-    href: "#",
+    href: "/about",
   },
 ];

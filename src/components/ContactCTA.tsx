@@ -27,7 +27,7 @@ export default function ContactCTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-6 max-w-xl text-neutral-600 dark:text-neutral-400 text-base md:text-lg"
         >
           {t("contact.cta.subtitle")}
@@ -37,7 +37,7 @@ export default function ContactCTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-10"
         >
           <Button

@@ -11,8 +11,32 @@ interface PostDetailProps {
 }
 
 export default function PostDetail({ post, language, backPath, backLabel }: PostDetailProps) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.feature_image || undefined,
+    datePublished: post.published_at,
+    author: post.authors[0]
+      ? {
+          "@type": "Person",
+          name: post.authors[0].name,
+        }
+      : undefined,
+    publisher: {
+      "@type": "Organization",
+      name: "Lagrange Engineering",
+      url: "https://lagrangeengineering.ro",
+    },
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-6 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back link */}
       <Link
         href={`/${language}${backPath}`}

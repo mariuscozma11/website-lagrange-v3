@@ -9,6 +9,7 @@ import CVDetection from "@/components/interactive/CVDetection";
 import OCRScan from "@/components/interactive/OCRScan";
 import ASRTranscribe from "@/components/interactive/ASRTranscribe";
 import LLMChat from "@/components/interactive/LLMChat";
+import ContactCTA from "@/components/ContactCTA";
 
 const technologies: Technology[] = [
   { name: "TensorFlow", image: "/tech/tensorflow.svg" },
@@ -49,7 +50,7 @@ const aiServices = [
   {
     titleKey: "services.ai.asr.title",
     descriptionKey: "services.ai.asr.description",
-    tag: "speech-recognition",
+    tag: "asr",
     element: <ASRTranscribe />,
   },
   {
@@ -88,7 +89,7 @@ export default function AIServicePage() {
       </section>
 
       {/* Services List */}
-      <section className="max-w-[1440px] mx-auto py-16 px-6">
+      <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
         <ServicesList
           services={aiServices}
           caseStudiesLinkKey="services.ai.relatedStudies"
@@ -108,6 +109,8 @@ export default function AIServicePage() {
           items={faqItems}
         />
       </section>
+
+      <ContactCTA />
     </>
   );
 }

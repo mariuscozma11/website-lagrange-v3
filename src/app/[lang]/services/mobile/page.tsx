@@ -8,30 +8,31 @@ import CrossPlatform from "@/components/interactive/CrossPlatform";
 import OfflineSync from "@/components/interactive/OfflineSync";
 import NativeFeatures from "@/components/interactive/NativeFeatures";
 import AppStoreUpdate from "@/components/interactive/AppStoreUpdate";
+import ContactCTA from "@/components/ContactCTA";
 
 const mobileServices = [
   {
     titleKey: "services.mobile.crossplatform.title",
     descriptionKey: "services.mobile.crossplatform.description",
-    tag: "cross-platform",
+    tag: "mobile-apps",
     element: <CrossPlatform />,
   },
   {
     titleKey: "services.mobile.offline.title",
     descriptionKey: "services.mobile.offline.description",
-    tag: "offline-first",
+    tag: "mobile-apps",
     element: <OfflineSync />,
   },
   {
     titleKey: "services.mobile.native.title",
     descriptionKey: "services.mobile.native.description",
-    tag: "native-features",
+    tag: "mobile-apps",
     element: <NativeFeatures />,
   },
   {
     titleKey: "services.mobile.deployment.title",
     descriptionKey: "services.mobile.deployment.description",
-    tag: "app-deployment",
+    tag: "mobile-apps",
     element: <AppStoreUpdate />,
   },
 ];
@@ -72,7 +73,7 @@ export default function MobileServicePage() {
       </section>
 
       {/* Services List */}
-      <section className="max-w-[1440px] mx-auto py-16 px-6">
+      <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
         <ServicesList
           services={mobileServices}
           caseStudiesLinkKey="services.mobile.relatedStudies"
@@ -87,6 +88,8 @@ export default function MobileServicePage() {
           items={faqItems}
         />
       </section>
+
+      <ContactCTA />
     </>
   );
 }

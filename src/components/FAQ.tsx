@@ -30,7 +30,7 @@ export default function FAQ({ headingKey1, headingKey2, items }: FAQProps) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="lg:w-2/5 lg:sticky lg:top-24 lg:self-start"
       >
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -44,7 +44,7 @@ export default function FAQ({ headingKey1, headingKey2, items }: FAQProps) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="lg:w-3/5"
       >
         <Accordion type="single" collapsible className="w-full">

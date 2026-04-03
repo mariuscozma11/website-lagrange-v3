@@ -11,6 +11,7 @@ import CMSPublish from "@/components/interactive/CMSPublish";
 import LMSQuiz from "@/components/interactive/LMSQuiz";
 import LighthouseScore from "@/components/interactive/LighthouseScore";
 import DesktopApp from "@/components/interactive/DesktopApp";
+import ContactCTA from "@/components/ContactCTA";
 
 const technologies: Technology[] = [
   { name: "Vite", image: "/tech/vite.svg" },
@@ -39,13 +40,13 @@ const webServices = [
   {
     titleKey: "services.web.apps.title",
     descriptionKey: "services.web.apps.description",
-    tag: "web-applications",
+    tag: "web-apps",
     element: <DashboardDemo />,
   },
   {
     titleKey: "services.web.commerce.title",
     descriptionKey: "services.web.commerce.description",
-    tag: "ecommerce",
+    tag: "e-commerce",
     element: <EcommerceDemo />,
   },
   {
@@ -57,19 +58,19 @@ const webServices = [
   {
     titleKey: "services.web.learning.title",
     descriptionKey: "services.web.learning.description",
-    tag: "lms",
+    tag: "e-learning",
     element: <LMSQuiz />,
   },
   {
     titleKey: "services.web.sites.title",
     descriptionKey: "services.web.sites.description",
-    tag: "marketing-sites",
+    tag: "seo",
     element: <LighthouseScore />,
   },
   {
     titleKey: "services.web.desktop.title",
     descriptionKey: "services.web.desktop.description",
-    tag: "desktop-applications",
+    tag: "desktop",
     element: <DesktopApp />,
   },
 ];
@@ -102,7 +103,7 @@ export default function WebServicePage() {
       </section>
 
       {/* Services List */}
-      <section className="max-w-[1440px] mx-auto py-16 px-6">
+      <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
         <ServicesList
           services={webServices}
           caseStudiesLinkKey="services.web.relatedStudies"
@@ -122,6 +123,8 @@ export default function WebServicePage() {
           items={faqItems}
         />
       </section>
+
+      <ContactCTA />
     </>
   );
 }
