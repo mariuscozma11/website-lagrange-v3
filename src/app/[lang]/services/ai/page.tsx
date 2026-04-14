@@ -6,7 +6,6 @@ import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
 import CVDetection from "@/components/interactive/CVDetection";
-import OCRScan from "@/components/interactive/OCRScan";
 import ASRTranscribe from "@/components/interactive/ASRTranscribe";
 import LLMChat from "@/components/interactive/LLMChat";
 import ContactCTA from "@/components/ContactCTA";
@@ -40,12 +39,6 @@ const aiServices = [
     descriptionKey: "services.ai.cv.description",
     tag: "computer-vision",
     element: <CVDetection />,
-  },
-  {
-    titleKey: "services.ai.ocr.title",
-    descriptionKey: "services.ai.ocr.description",
-    tag: "ocr",
-    element: <OCRScan />,
   },
   {
     titleKey: "services.ai.asr.title",
