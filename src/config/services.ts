@@ -1,6 +1,14 @@
-import { BrainCircuit, Globe, Smartphone, MessageSquare } from "lucide-react";
+import { BrainCircuit, Globe, Smartphone, MessageSquare, Cpu } from "lucide-react";
 
 export const services = [
+  {
+    titleKey: "services.iot.title",
+    descriptionKey: "services.iot.description",
+    Icon: Cpu,
+    href: "/services/iot",
+    image: "/iot-backdrop.png",
+    colSpan: "lg:col-span-3",
+  },
   {
     titleKey: "services.ai.title",
     descriptionKey: "services.ai.description",
@@ -15,7 +23,7 @@ export const services = [
     Icon: Globe,
     href: "/services/web",
     image: "/web-backdrop.png",
-    colSpan: "lg:col-span-3",
+    colSpan: "lg:col-span-2",
   },
   {
     titleKey: "services.mobile.title",
@@ -23,7 +31,7 @@ export const services = [
     Icon: Smartphone,
     href: "/services/mobile",
     image: "/mobile-backdrop.png",
-    colSpan: "lg:col-span-4",
+    colSpan: "lg:col-span-2",
   },
   {
     titleKey: "services.consulting.title",
