@@ -6,6 +6,12 @@ import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
 import ContactCTA from "@/components/ContactCTA";
+import IntegrationBridge from "@/components/interactive/IntegrationBridge";
+import LadderLogic from "@/components/interactive/LadderLogic";
+import ProcessMimic from "@/components/interactive/ProcessMimic";
+import RobotArm from "@/components/interactive/RobotArm";
+import HealthMonitor from "@/components/interactive/HealthMonitor";
+import OEEDashboard from "@/components/interactive/OEEDashboard";
 
 const technologies: Technology[] = [
   { name: "Siemens", image: "/tech/siemens.svg" },
@@ -28,6 +34,7 @@ const faqItems = [
   { questionKey: "services.automation.faq.q3", answerKey: "services.automation.faq.a3" },
   { questionKey: "services.automation.faq.q4", answerKey: "services.automation.faq.a4" },
   { questionKey: "services.automation.faq.q5", answerKey: "services.automation.faq.a5" },
+  { questionKey: "services.automation.faq.q6", answerKey: "services.automation.faq.a6" },
 ];
 
 const automationServices = [
@@ -35,31 +42,37 @@ const automationServices = [
     titleKey: "services.automation.integration.title",
     descriptionKey: "services.automation.integration.description",
     tag: "automation",
+    element: <IntegrationBridge />,
   },
   {
     titleKey: "services.automation.plc.title",
     descriptionKey: "services.automation.plc.description",
     tag: "automation",
+    element: <LadderLogic />,
   },
   {
     titleKey: "services.automation.hmi.title",
     descriptionKey: "services.automation.hmi.description",
     tag: "automation",
+    element: <ProcessMimic />,
   },
   {
     titleKey: "services.automation.robotics.title",
     descriptionKey: "services.automation.robotics.description",
     tag: "automation",
+    element: <RobotArm />,
   },
   {
     titleKey: "services.automation.predictive.title",
     descriptionKey: "services.automation.predictive.description",
     tag: "automation",
+    element: <HealthMonitor />,
   },
   {
     titleKey: "services.automation.oee.title",
     descriptionKey: "services.automation.oee.description",
     tag: "automation",
+    element: <OEEDashboard />,
   },
 ];
 

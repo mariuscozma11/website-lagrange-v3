@@ -6,7 +6,7 @@ export const services = [
     descriptionKey: "services.automation.description",
     Icon: Factory,
     href: "/services/automation",
-    image: "/iot-backdrop.png",
+    image: "/iiot.png",
     colSpan: "lg:col-span-3",
   },
   {
