@@ -1,4 +1,4 @@
-import { BrainCircuit, Globe, Smartphone, MessageSquare, Factory } from "lucide-react";
+import { BrainCircuit, Globe, Smartphone, Factory } from "lucide-react";
 
 export const services = [
   {
@@ -23,7 +23,7 @@ export const services = [
     Icon: Globe,
     href: "/services/web",
     image: "/web-backdrop.png",
-    colSpan: "lg:col-span-2",
+    colSpan: "lg:col-span-4",
   },
   {
     titleKey: "services.mobile.title",
@@ -31,14 +31,6 @@ export const services = [
     Icon: Smartphone,
     href: "/services/mobile",
     image: "/mobile-backdrop.png",
-    colSpan: "lg:col-span-2",
-  },
-  {
-    titleKey: "services.consulting.title",
-    descriptionKey: "services.consulting.description",
-    Icon: MessageSquare,
-    href: "/services/consulting",
-    image: "/consulting-backdrop.png",
     colSpan: "lg:col-span-2",
   },
 ];

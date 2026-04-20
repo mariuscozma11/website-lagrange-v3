@@ -16,7 +16,7 @@ function EnglishContent() {
       <p>By accessing our website or engaging our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>
 
       <h2>1. Services</h2>
-      <p>Lagrange Engineering provides custom software development services, including but not limited to: AI &amp; machine learning solutions, web application development, mobile application development, and technical consulting (&quot;Services&quot;).</p>
+      <p>Lagrange Engineering provides custom software development services, including but not limited to: AI &amp; machine learning solutions, web application development, mobile application development, and industrial automation &amp; IIoT (&quot;Services&quot;).</p>
       <p>The specific scope, deliverables, timeline, and pricing for each project are defined in individual proposals or contracts (&quot;Project Agreement&quot;) agreed upon by both parties. In case of any conflict between these Terms and a Project Agreement, the Project Agreement shall prevail.</p>
 
       <h2>2. Proposals and Acceptance</h2>
