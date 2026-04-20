@@ -1,11 +1,11 @@
-import { BrainCircuit, Globe, Smartphone, MessageSquare, Cpu } from "lucide-react";
+import { BrainCircuit, Globe, Smartphone, MessageSquare, Factory } from "lucide-react";
 
 export const services = [
   {
-    titleKey: "services.iot.title",
-    descriptionKey: "services.iot.description",
-    Icon: Cpu,
-    href: "/services/iot",
+    titleKey: "services.automation.title",
+    descriptionKey: "services.automation.description",
+    Icon: Factory,
+    href: "/services/automation",
     image: "/iot-backdrop.png",
     colSpan: "lg:col-span-3",
   },
