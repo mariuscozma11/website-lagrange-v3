@@ -46,14 +46,14 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
             className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-16`}
           >
             {/* Interactive Element */}
-            <div className="w-full lg:flex-1 flex justify-center">
+            <div className="w-full lg:flex-1 flex justify-center order-2 lg:order-none">
               <div className="w-full max-w-md lg:max-w-none">
                 {service.element || <DefaultPlaceholder />}
               </div>
             </div>
 
             {/* Content */}
-            <div className="w-full lg:flex-1">
+            <div className="w-full lg:flex-1 order-1 lg:order-none">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-neutral-800 dark:text-neutral-200">
                 {t(service.titleKey)}
               </h2>
