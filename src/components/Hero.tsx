@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-5xl text-4xl font-medium tracking-tight text-neutral-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl dark:text-neutral-200"
+          className="max-w-5xl text-3xl font-medium tracking-tight text-neutral-800 sm:text-4xl md:text-5xl lg:text-5xl xl:text-7xl dark:text-neutral-200"
         >
           {t("hero.title.before")}
           <span className="text-primary">{t("hero.title.highlight")}</span>
