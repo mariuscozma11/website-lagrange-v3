@@ -23,7 +23,7 @@ const technologies: Technology[] = [
   { name: "Raspberry Pi", image: "/tech/raspberrypi.svg" },
   { name: "ESP32", image: "/tech/esp32.svg" },
   { name: "Python", image: "/tech/python.svg" },
-  { name: "C++", image: "/tech/cplusplus.svg" },
+  { name: "Node-RED", image: "/tech/nodered.svg" },
   { name: "Docker", image: "/tech/docker.svg" },
   { name: "PostgreSQL", image: "/tech/postgresql.svg" },
 ];
