@@ -47,7 +47,7 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
           >
             {/* Interactive Element */}
             <div className="w-full lg:flex-1 flex justify-center order-2 lg:order-none">
-              <div className="w-full max-w-md lg:max-w-none">
+              <div className="w-full max-w-[480px]">
                 {service.element || <DefaultPlaceholder />}
               </div>
             </div>

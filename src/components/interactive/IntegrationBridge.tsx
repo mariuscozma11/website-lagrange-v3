@@ -30,7 +30,7 @@ export default function IntegrationBridge() {
       onMouseLeave={() => setActive(false)}
       onClick={() => setActive((a) => !a)}
     >
-      <div className="w-[95%] max-w-[420px]">
+      <div className="w-full">
         <div className="relative aspect-square">
           <svg
             viewBox="0 0 400 400"

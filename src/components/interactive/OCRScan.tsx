@@ -1,47 +1,115 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Play } from "lucide-react";
 
-// Each field's position is hand-mapped to a specific gray bar below
-// All coordinates are % within the document container
 const extractedFields = [
   { label: "Invoice", value: "INV-00482", color: "#3b82f6" },
   { label: "Date", value: "2026-03-15", color: "#22c55e" },
   { label: "Vendor", value: "Acme Corp.", color: "#8b5cf6" },
-  { label: "Tax", value: "$342.40", color: "#ef4444" },
+  { label: "Batch", value: "LOT-2026-04-A12", color: "#06b6d4" },
+  { label: "Serial", value: "SN 8472-0031", color: "#ec4899" },
   { label: "Total", value: "$4,280.00", color: "#f59e0b" },
 ];
 
-// Document rows: each row knows its y position, and optionally which field highlights it
 interface DocRow {
-  y: number; // top position %
+  y: number;
   bars: { x: number; w: number; h: number; bold?: boolean; fieldIndex?: number }[];
 }
 
 const docRows: DocRow[] = [
-  // Header
-  { y: 6, bars: [{ x: 8, w: 30, h: 2.5, bold: true, fieldIndex: 0 }] }, // "INVOICE" title
-  { y: 11, bars: [{ x: 8, w: 24, h: 1.5 }] }, // invoice number
-  { y: 15, bars: [{ x: 64, w: 28, h: 1.5, fieldIndex: 1 }] }, // date, right
-  // Vendor
-  { y: 22, bars: [{ x: 8, w: 22, h: 1.5, bold: true, fieldIndex: 2 }] }, // vendor name
-  { y: 26, bars: [{ x: 8, w: 36, h: 1 }] }, // address line 1
-  { y: 29, bars: [{ x: 8, w: 30, h: 1 }] }, // address line 2
-  // Table header
-  { y: 35, bars: [{ x: 8, w: 32, h: 1, bold: true }, { x: 62, w: 10, h: 1, bold: true }, { x: 76, w: 16, h: 1, bold: true }] },
-  // Line items
-  { y: 41, bars: [{ x: 8, w: 26, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
-  { y: 46, bars: [{ x: 8, w: 20, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
-  { y: 51, bars: [{ x: 8, w: 24, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
-  { y: 56, bars: [{ x: 8, w: 18, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
-  // Totals
-  { y: 64, bars: [{ x: 60, w: 14, h: 1 }, { x: 78, w: 14, h: 1 }] }, // subtotal
-  { y: 70, bars: [{ x: 64, w: 10, h: 1, fieldIndex: 3 }, { x: 78, w: 14, h: 1, fieldIndex: 3 }] }, // tax
-  { y: 80, bars: [{ x: 60, w: 14, h: 1.5, bold: true, fieldIndex: 4 }, { x: 78, w: 14, h: 1.5, bold: true, fieldIndex: 4 }] }, // total
+  { y: 6, bars: [{ x: 8, w: 30, h: 2.5, bold: true, fieldIndex: 0 }] },
+  { y: 11, bars: [{ x: 8, w: 24, h: 1.5 }] },
+  { y: 15, bars: [{ x: 8, w: 28, h: 1.5, fieldIndex: 1 }] },
+  { y: 22, bars: [{ x: 8, w: 22, h: 1.5, bold: true, fieldIndex: 2 }] },
+  { y: 26, bars: [{ x: 8, w: 36, h: 1 }] },
+  { y: 29, bars: [{ x: 8, w: 30, h: 1 }] },
+  { y: 41, bars: [{ x: 8, w: 32, h: 1, bold: true }, { x: 62, w: 10, h: 1, bold: true }, { x: 76, w: 16, h: 1, bold: true }] },
+  { y: 47, bars: [{ x: 8, w: 26, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
+  { y: 52, bars: [{ x: 8, w: 20, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
+  { y: 57, bars: [{ x: 8, w: 24, h: 1 }, { x: 62, w: 10, h: 1 }, { x: 76, w: 14, h: 1 }] },
+  { y: 70, bars: [{ x: 60, w: 14, h: 1.5, bold: true, fieldIndex: 5 }, { x: 78, w: 14, h: 1.5, bold: true, fieldIndex: 5 }] },
 ];
 
-// Derive highlight boxes from the doc rows
+// QR code: 21x21 (Version 1) with three finder patterns + alignment + timing
+const QR_SIZE = 21;
+const qrCode: boolean[] = (() => {
+  const cells: boolean[] = new Array(QR_SIZE * QR_SIZE).fill(false);
+  const set = (r: number, c: number, v: boolean) => {
+    if (r >= 0 && r < QR_SIZE && c >= 0 && c < QR_SIZE) cells[r * QR_SIZE + c] = v;
+  };
+  const isReserved = (r: number, c: number) => {
+    // Three finder patterns + 1px white separator around them
+    const inFinder = (fr: number, fc: number) =>
+      r >= fr - 1 && r <= fr + 7 && c >= fc - 1 && c <= fc + 7;
+    if (inFinder(0, 0) || inFinder(0, QR_SIZE - 7) || inFinder(QR_SIZE - 7, 0)) return true;
+    // Timing patterns
+    if (r === 6 || c === 6) return true;
+    return false;
+  };
+
+  // Finder pattern: 7x7 with concentric squares (solid, white, solid)
+  const drawFinder = (fr: number, fc: number) => {
+    for (let r = 0; r < 7; r++) {
+      for (let c = 0; c < 7; c++) {
+        const onOuter = r === 0 || r === 6 || c === 0 || c === 6;
+        const onInner = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+        set(fr + r, fc + c, onOuter || onInner);
+      }
+    }
+  };
+  drawFinder(0, 0);
+  drawFinder(0, QR_SIZE - 7);
+  drawFinder(QR_SIZE - 7, 0);
+
+  // Timing patterns: alternating cells along row 6 and column 6
+  for (let i = 8; i < QR_SIZE - 8; i++) {
+    set(6, i, i % 2 === 0);
+    set(i, 6, i % 2 === 0);
+  }
+
+  // Data fill: deterministic pseudo-random for unreserved cells
+  let seed = 1337;
+  const rand = () => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return seed / 0x7fffffff;
+  };
+  for (let r = 0; r < QR_SIZE; r++) {
+    for (let c = 0; c < QR_SIZE; c++) {
+      if (!isReserved(r, c)) set(r, c, rand() > 0.5);
+    }
+  }
+
+  return cells;
+})();
+
+// 1D barcode: alternating bar widths
+const barcodeBars: { x: number; w: number }[] = (() => {
+  const bars: { x: number; w: number }[] = [];
+  let x = 0;
+  let seed = 7;
+  const rand = () => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return seed / 0x7fffffff;
+  };
+  while (x < 100) {
+    const w = 1 + Math.floor(rand() * 3);
+    bars.push({ x, w });
+    x += w + 1 + Math.floor(rand() * 2);
+  }
+  return bars;
+})();
+
+// Position of the codes within the document (in % of doc rect)
+const QR_POS = { x: 70, y: 6, w: 22, h: 22 };
+const BC_POS = { x: 8, y: 80, w: 40, h: 9 };
+
+// fieldIndex 3 = Batch (QR code), fieldIndex 4 = Serial (Barcode)
+const codeHighlights = [
+  { fieldIndex: 3, ...QR_POS },
+  { fieldIndex: 4, ...BC_POS },
+];
+
 function getFieldHighlights() {
   const fieldBounds: Record<number, { minX: number; minY: number; maxX: number; maxY: number }> = {};
 
@@ -58,6 +126,15 @@ function getFieldHighlights() {
     }
   }
 
+  for (const c of codeHighlights) {
+    fieldBounds[c.fieldIndex] = {
+      minX: c.x,
+      minY: c.y,
+      maxX: c.x + c.w,
+      maxY: c.y + c.h,
+    };
+  }
+
   return extractedFields.map((field, i) => {
     const b = fieldBounds[i];
     if (!b) return null;
@@ -72,10 +149,9 @@ function getFieldHighlights() {
   }).filter(Boolean);
 }
 
-const highlights = getFieldHighlights();
-
 export default function OCRScan() {
   const [phase, setPhase] = useState<"idle" | "scanning" | "extracted">("idle");
+  const highlights = useMemo(() => getFieldHighlights(), []);
 
   const handleHover = () => {
     if (phase !== "idle") return;
@@ -121,11 +197,54 @@ export default function OCRScan() {
           ))
         )}
 
+        {/* QR code */}
+        <div
+          className="absolute grid bg-white dark:bg-neutral-800 p-[3%]"
+          style={{
+            left: `${QR_POS.x}%`,
+            top: `${QR_POS.y}%`,
+            width: `${QR_POS.w}%`,
+            height: `${QR_POS.h}%`,
+            gridTemplateColumns: `repeat(${QR_SIZE}, 1fr)`,
+            gridTemplateRows: `repeat(${QR_SIZE}, 1fr)`,
+          }}
+        >
+          {qrCode.map((on, i) => (
+            <div
+              key={i}
+              className={on ? "bg-neutral-900 dark:bg-neutral-100" : "bg-transparent"}
+            />
+          ))}
+        </div>
+
+        {/* 1D Barcode */}
+        <div
+          className="absolute"
+          style={{
+            left: `${BC_POS.x}%`,
+            top: `${BC_POS.y}%`,
+            width: `${BC_POS.w}%`,
+            height: `${BC_POS.h}%`,
+          }}
+        >
+          {barcodeBars.map((b, i) => (
+            <div
+              key={i}
+              className="absolute top-0 bottom-[28%] bg-neutral-800 dark:bg-neutral-200"
+              style={{ left: `${b.x}%`, width: `${b.w}%` }}
+            />
+          ))}
+          <div className="absolute bottom-0 left-0 right-0 h-[22%] flex items-center justify-center">
+            <div className="font-mono text-[6px] sm:text-[7px] text-neutral-700 dark:text-neutral-300 tracking-[0.2em]">
+              847200310026
+            </div>
+          </div>
+        </div>
+
         {/* Separator lines */}
-        <div className="absolute left-[8%] right-[8%] top-[19%] border-t border-neutral-100 dark:border-neutral-700/40" />
         <div className="absolute left-[8%] right-[8%] top-[33%] border-t border-neutral-100 dark:border-neutral-700/40" />
-        <div className="absolute left-[8%] right-[8%] top-[37.5%] border-t border-neutral-100 dark:border-neutral-700/40" />
-        <div className="absolute left-[8%] right-[8%] top-[62%] border-t border-neutral-100 dark:border-neutral-700/40" />
+        <div className="absolute left-[8%] right-[8%] top-[39%] border-t border-neutral-100 dark:border-neutral-700/40" />
+        <div className="absolute left-[8%] right-[8%] top-[63%] border-t border-neutral-100 dark:border-neutral-700/40" />
       </div>
 
       {/* Scan line */}

@@ -121,7 +121,7 @@ export default function HealthMonitor() {
       onMouseLeave={deactivate}
       onClick={() => (on ? deactivate() : activate())}
     >
-      <div className="w-[96%] max-w-[440px]">
+      <div className="w-full">
         <div className="relative aspect-square">
           <svg
             viewBox="0 0 400 400"

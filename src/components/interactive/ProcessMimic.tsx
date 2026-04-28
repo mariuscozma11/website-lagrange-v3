@@ -81,7 +81,7 @@ export default function ProcessMimic() {
       onMouseLeave={deactivate}
       onClick={() => (on ? deactivate() : activate())}
     >
-      <div className="w-[96%] max-w-[440px]">
+      <div className="w-full">
         <div className="relative aspect-square rounded-xl bg-neutral-200 dark:bg-neutral-800 border border-neutral-400 dark:border-neutral-900 shadow-lg p-3 flex flex-col gap-2">
           {/* Top bezel strip */}
           <div className="flex items-center justify-between h-4 px-1">

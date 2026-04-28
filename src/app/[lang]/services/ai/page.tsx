@@ -5,23 +5,24 @@ import { motion } from "motion/react";
 import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
-import CVDetection from "@/components/interactive/CVDetection";
-import RobotArm from "@/components/interactive/RobotArm";
+import DefectInspection from "@/components/interactive/DefectInspection";
+import BinPicking from "@/components/interactive/BinPicking";
 import OCRScan from "@/components/interactive/OCRScan";
 import ContactCTA from "@/components/ContactCTA";
 
 const technologies: Technology[] = [
-  { name: "TensorFlow", image: "/tech/tensorflow.svg" },
   { name: "PyTorch", image: "/tech/pytorch.svg" },
+  { name: "TensorFlow", image: "/tech/tensorflow.svg" },
   { name: "OpenCV", image: "/tech/opencv.svg" },
+  { name: "C++", image: "/tech/cplusplus.svg" },
+  { name: "Python", image: "/tech/python.svg" },
+  { name: "ONNX", image: "/tech/onnx.svg" },
   { name: "Hugging Face", image: "/tech/huggingface.svg" },
   { name: "scikit-learn", image: "/tech/scikit-learn.svg" },
-  { name: "ONNX", image: "/tech/onnx.svg" },
+  { name: "NumPy", image: "/tech/numpy.svg" },
+  { name: "Cognex", image: "/tech/cognex.svg" },
   { name: "FastAPI", image: "/tech/fastapi.svg" },
   { name: "Docker", image: "/tech/docker.svg" },
-  { name: "Python", image: "/tech/python.svg" },
-  { name: "NumPy", image: "/tech/numpy.svg" },
-  { name: "Kubernetes", image: "/tech/kubernetes.svg" },
 ];
 
 const faqItems = [
@@ -37,13 +38,13 @@ const aiServices = [
     titleKey: "services.ai.inspection.title",
     descriptionKey: "services.ai.inspection.description",
     tag: "computer-vision",
-    element: <CVDetection />,
+    element: <DefectInspection />,
   },
   {
     titleKey: "services.ai.vgr.title",
     descriptionKey: "services.ai.vgr.description",
     tag: "computer-vision",
-    element: <RobotArm />,
+    element: <BinPicking />,
   },
   {
     titleKey: "services.ai.ocr.title",
