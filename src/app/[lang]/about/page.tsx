@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
-import { Check, User, Wrench, Cpu } from "lucide-react";
+import { Check } from "lucide-react";
 import ContactCTA from "@/components/ContactCTA";
 import { Terminal } from "@/components/ui/terminal";
 
@@ -42,27 +42,25 @@ const principles = [
 
 const founders = [
   {
+    initials: "MC",
     nameKey: "about.team.founder1.name",
     roleKey: "about.team.founder1.role",
     bioKey: "about.team.founder1.bio",
   },
   {
+    initials: "AB",
     nameKey: "about.team.founder2.name",
     roleKey: "about.team.founder2.role",
     bioKey: "about.team.founder2.bio",
   },
 ];
 
-const collaborators = [
+const partners = [
   {
-    Icon: Wrench,
-    roleKey: "about.team.network.collab1.role",
-    bioKey: "about.team.network.collab1.bio",
-  },
-  {
-    Icon: Cpu,
-    roleKey: "about.team.network.collab2.role",
-    bioKey: "about.team.network.collab2.bio",
+    initials: "IW",
+    nameKey: "about.team.partner1.name",
+    specializationKey: "about.team.partner1.specialization",
+    descriptionKey: "about.team.partner1.description",
   },
 ];
 
@@ -167,17 +165,17 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="p-6 sm:p-7 border border-dashed border-neutral-300 dark:border-neutral-700 rounded-md"
+              className="p-6 sm:p-7 rounded-md border border-dashed border-neutral-300 dark:border-neutral-700"
             >
-              <div className="flex items-center gap-4">
-                <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <User className="w-6 h-6 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-14 h-14 rounded-md border border-dashed border-primary/40 flex items-center justify-center font-mono text-base font-bold text-primary">
+                  {f.initials}
                 </div>
-                <div>
-                  <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-semibold text-neutral-800 dark:text-neutral-200">
                     {t(f.nameKey)}
                   </h3>
-                  <p className="mt-0.5 text-xs font-mono uppercase tracking-wider text-primary">
+                  <p className="mt-1 text-[10px] font-mono uppercase tracking-wider text-primary">
                     {t(f.roleKey)}
                   </p>
                 </div>
@@ -188,48 +186,50 @@ export default function AboutPage() {
             </motion.div>
           ))}
         </div>
+      </section>
 
-        {/* Network / Collaborators */}
-        <motion.h3
-          initial={{ opacity: 0, y: 15 }}
+      {/* Partner network */}
+      <section className="max-w-[1440px] mx-auto pt-4 pb-16 xl:pb-24 px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mt-12 text-sm font-mono font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-500"
+          transition={{ duration: 0.5 }}
+          className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200"
         >
-          {t("about.team.network.title")}
-        </motion.h3>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          className="mt-2 max-w-2xl text-sm text-neutral-500 dark:text-neutral-500"
-        >
-          {t("about.team.network.description")}
-        </motion.p>
+          {t("about.team.partners.title")}{" "}
+          <span className="text-primary">{t("about.team.partners.titleAccent")}</span>
+        </motion.h2>
 
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-          {collaborators.map((c, i) => (
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {partners.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-              className="p-5 border border-dashed border-neutral-300 dark:border-neutral-700 rounded-md flex items-start gap-4"
+              transition={{ duration: 0.4 }}
+              className="relative p-6 sm:p-7 rounded-md border border-dashed border-neutral-300 dark:border-neutral-700"
             >
-              <div className="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
-                <c.Icon className="w-4 h-4 text-neutral-600 dark:text-neutral-400" />
+              <span className="absolute top-3 right-3 px-1.5 py-0.5 rounded-sm font-mono text-[9px] font-bold tracking-wider text-neutral-500 dark:text-neutral-400 border border-neutral-300 dark:border-neutral-700">
+                {t("about.team.partnerTag")}
+              </span>
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-14 h-14 rounded-md border border-dashed border-neutral-400/60 dark:border-neutral-500/60 flex items-center justify-center font-mono text-base font-bold text-neutral-600 dark:text-neutral-300">
+                  {p.initials}
+                </div>
+                <div className="min-w-0 pr-16">
+                  <h3 className="text-base sm:text-lg font-semibold text-neutral-800 dark:text-neutral-200">
+                    {t(p.nameKey)}
+                  </h3>
+                  <p className="mt-1 text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                    {t(p.specializationKey)}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
-                  {t(c.roleKey)}
-                </h4>
-                <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                  {t(c.bioKey)}
-                </p>
-              </div>
+              <p className="mt-5 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                {t(p.descriptionKey)}
+              </p>
             </motion.div>
           ))}
         </div>

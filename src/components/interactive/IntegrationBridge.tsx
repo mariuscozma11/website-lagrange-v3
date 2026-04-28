@@ -37,7 +37,7 @@ export default function IntegrationBridge() {
             className="w-full h-full"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Paths — source → hub */}
+            {/* Paths : source → hub */}
             {sources.map((s, i) => {
               const pathId = `src-${i}`;
               const d = `M ${sourceX + 35},${s.y} Q ${(sourceX + hubX) / 2},${s.y} ${hubX - 35},${hubY}`;
@@ -76,7 +76,7 @@ export default function IntegrationBridge() {
               );
             })}
 
-            {/* Paths — hub → dest */}
+            {/* Paths : hub → dest */}
             {destinations.map((d, i) => {
               const pathId = `dst-${i}`;
               const pathD = `M ${hubX + 35},${hubY} Q ${(hubX + destX) / 2},${d.y} ${destX - 35},${d.y}`;

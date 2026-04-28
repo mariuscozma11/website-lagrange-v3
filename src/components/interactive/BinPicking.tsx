@@ -209,7 +209,7 @@ export default function BinPicking() {
         <div
           className="absolute pointer-events-none"
           style={{
-            // Reticle sits at bin coordinate space — bin is inset 14%, span 72%
+            // Reticle sits at bin coordinate space : bin is inset 14%, span 72%
             left: `${14 + (reticleX / 100) * 72}%`,
             top: `${14 + (reticleY / 100) * 72}%`,
             transform: "translate(-50%, -50%)",
@@ -217,7 +217,7 @@ export default function BinPicking() {
             opacity: pickProgress > 0.5 ? 1 - (pickProgress - 0.5) * 2 : 1,
           }}
         >
-          {/* Outer ring — pulses when locked */}
+          {/* Outer ring : pulses when locked */}
           <div
             className="rounded-full border-2"
             style={{

@@ -378,7 +378,7 @@ function Coil({
           opacity="0.12"
         />
       )}
-      {/* Left arc — opening right */}
+      {/* Left arc : opening right */}
       <path
         d={`M ${cx - 9},${cy - 11} Q ${cx - 2},${cy} ${cx - 9},${cy + 11}`}
         fill="none"
@@ -386,7 +386,7 @@ function Coil({
         strokeWidth="2.5"
         style={{ transition: "stroke 0.3s" }}
       />
-      {/* Right arc — opening left */}
+      {/* Right arc : opening left */}
       <path
         d={`M ${cx + 9},${cy - 11} Q ${cx + 2},${cy} ${cx + 9},${cy + 11}`}
         fill="none"
