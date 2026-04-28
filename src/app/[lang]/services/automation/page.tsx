@@ -12,6 +12,7 @@ import ProcessMimic from "@/components/interactive/ProcessMimic";
 import RobotArm from "@/components/interactive/RobotArm";
 import HealthMonitor from "@/components/interactive/HealthMonitor";
 import OEEDashboard from "@/components/interactive/OEEDashboard";
+import DashboardDemo from "@/components/interactive/DashboardDemo";
 
 const technologies: Technology[] = [
   { name: "Siemens", image: "/tech/siemens.svg" },
@@ -73,6 +74,12 @@ const automationServices = [
     descriptionKey: "services.automation.oee.description",
     tag: "automation",
     element: <OEEDashboard />,
+  },
+  {
+    titleKey: "services.automation.portals.title",
+    descriptionKey: "services.automation.portals.description",
+    tag: "automation",
+    element: <DashboardDemo />,
   },
 ];
 

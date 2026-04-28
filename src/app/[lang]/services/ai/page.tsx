@@ -6,8 +6,8 @@ import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
 import CVDetection from "@/components/interactive/CVDetection";
-import ASRTranscribe from "@/components/interactive/ASRTranscribe";
-import LLMChat from "@/components/interactive/LLMChat";
+import RobotArm from "@/components/interactive/RobotArm";
+import OCRScan from "@/components/interactive/OCRScan";
 import ContactCTA from "@/components/ContactCTA";
 
 const technologies: Technology[] = [
@@ -15,7 +15,6 @@ const technologies: Technology[] = [
   { name: "PyTorch", image: "/tech/pytorch.svg" },
   { name: "OpenCV", image: "/tech/opencv.svg" },
   { name: "Hugging Face", image: "/tech/huggingface.svg" },
-  { name: "OpenAI", image: "/tech/openai.svg" },
   { name: "scikit-learn", image: "/tech/scikit-learn.svg" },
   { name: "ONNX", image: "/tech/onnx.svg" },
   { name: "FastAPI", image: "/tech/fastapi.svg" },
@@ -35,22 +34,22 @@ const faqItems = [
 
 const aiServices = [
   {
-    titleKey: "services.ai.cv.title",
-    descriptionKey: "services.ai.cv.description",
+    titleKey: "services.ai.inspection.title",
+    descriptionKey: "services.ai.inspection.description",
     tag: "computer-vision",
     element: <CVDetection />,
   },
   {
-    titleKey: "services.ai.llm.title",
-    descriptionKey: "services.ai.llm.description",
-    tag: "llm",
-    element: <LLMChat />,
+    titleKey: "services.ai.vgr.title",
+    descriptionKey: "services.ai.vgr.description",
+    tag: "computer-vision",
+    element: <RobotArm />,
   },
   {
-    titleKey: "services.ai.asr.title",
-    descriptionKey: "services.ai.asr.description",
-    tag: "asr",
-    element: <ASRTranscribe />,
+    titleKey: "services.ai.ocr.title",
+    descriptionKey: "services.ai.ocr.description",
+    tag: "computer-vision",
+    element: <OCRScan />,
   },
 ];
 

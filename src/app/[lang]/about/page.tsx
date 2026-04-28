@@ -80,28 +80,28 @@ export default function AboutPage() {
           >
             <Terminal
               commands={[
-                "lagrange init --project client-mvp",
-                "lagrange deploy --env production",
-                "lagrange status",
+                'mosquitto_sub -h broker.local -t "plant/+/state" -v',
+                "influx query 'from(bucket:\"oee\") |> range(start: -1h)'",
+                "journalctl -u node-red -f",
               ]}
               outputs={{
                 0: [
-                  "✓ Project scaffolded",
-                  "✓ CI/CD pipeline configured",
-                  "✓ Staging environment ready",
-                  "→ Run 'lagrange deploy' when ready",
+                  "plant/line-03/state {\"run\":1,\"speed\":42.7,\"ts\":1714312805}",
+                  "plant/line-01/state {\"run\":1,\"speed\":38.2,\"ts\":1714312806}",
+                  "plant/line-03/state {\"run\":0,\"reason\":\"micro_stop\",\"ts\":1714312811}",
+                  "plant/line-02/state {\"run\":1,\"speed\":40.1,\"ts\":1714312813}",
                 ],
                 1: [
-                  "Building...",
-                  "✓ Tests passed (42/42)",
-                  "✓ Deployed to production",
-                  "→ https://client-mvp.lagrange.dev",
+                  "_time                line     availability  performance  quality",
+                  "2026-04-28T08:00:00Z line-01  0.94          0.88         0.99",
+                  "2026-04-28T08:00:00Z line-02  0.91          0.85         0.98",
+                  "2026-04-28T08:00:00Z line-03  0.78          0.92         0.99",
                 ],
                 2: [
-                  "Project: client-mvp",
-                  "Status: live",
-                  "Uptime: 99.98%",
-                  "Last deploy: 2 minutes ago",
+                  "node-red[1842]: [info] Started flow \"oee-aggregator\"",
+                  "node-red[1842]: [info] OPC UA client connected: opc.tcp://plc-03:4840",
+                  "node-red[1842]: [info] MQTT publish plant/line-03/state",
+                  "node-red[1842]: [warn] Reconnecting historian: timeout 2s",
                 ],
               }}
               username="lagrange"

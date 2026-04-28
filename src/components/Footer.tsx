@@ -88,14 +88,6 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href={`/${language}/services/custom-software`}
-                className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
-              >
-                {t("services.customSoftware.title")}
-              </Link>
-            </li>
           </ul>
         </motion.div>
 
