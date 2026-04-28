@@ -54,7 +54,7 @@ export default function Hero() {
           </Button>
 
           <Button asChild variant="secondary" className="h-10 lg:h-10 text-base px-6 border border-transparent hover:border-border dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors">
-            <Link href={`/${language}/case-studies`}>{t("hero.cta.secondary")}</Link>
+            <Link href={`/${language}/blog`}>{t("hero.cta.secondary")}</Link>
           </Button>
         </motion.div>
       </section>

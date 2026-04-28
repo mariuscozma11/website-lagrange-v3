@@ -116,6 +116,13 @@ export default function AutomationServicePage() {
         <TechGrid technologies={technologies} title={t("services.automation.technologies")} />
       </section>
 
+      {/* Closing line */}
+      <section className="max-w-[1440px] mx-auto pb-16 xl:pb-24 px-6">
+        <p className="max-w-3xl text-lg text-neutral-600 dark:text-neutral-400 italic">
+          {t("services.automation.closing")}
+        </p>
+      </section>
+
       {/* FAQ */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
         <FAQ

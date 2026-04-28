@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Development",
+  title: "Custom Software",
   description:
-    "Web applications, ecommerce platforms, content management systems, and desktop apps built with modern technologies.",
+    "Operations dashboards, plant and fleet portals, technician mobile tools, and internal interfaces that wrap around industrial and IoT deployments.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

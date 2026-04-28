@@ -4,7 +4,7 @@ import ContentListing from "@/components/ContentListing";
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "Real projects, real results. See how we've helped businesses solve technical challenges across industries.",
+    "Worked examples and reference architectures from industrial IoT, embedded, and automation projects.",
 };
 
 export default function CaseStudiesPage() {

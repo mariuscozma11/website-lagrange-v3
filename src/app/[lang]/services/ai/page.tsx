@@ -41,16 +41,16 @@ const aiServices = [
     element: <CVDetection />,
   },
   {
-    titleKey: "services.ai.asr.title",
-    descriptionKey: "services.ai.asr.description",
-    tag: "asr",
-    element: <ASRTranscribe />,
-  },
-  {
     titleKey: "services.ai.llm.title",
     descriptionKey: "services.ai.llm.description",
     tag: "llm",
     element: <LLMChat />,
+  },
+  {
+    titleKey: "services.ai.asr.title",
+    descriptionKey: "services.ai.asr.description",
+    tag: "asr",
+    element: <ASRTranscribe />,
   },
 ];
 

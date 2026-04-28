@@ -9,7 +9,7 @@ import ContactCTA from "@/components/ContactCTA";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Software engineering team building AI systems, web applications, and mobile apps. Based in Timisoara, Romania.",
+    "Industrial IoT, automation, and embedded systems specialists. We build the modern software, data, and edge layer for factories, warehouses, fields, and infrastructure. Based in Timișoara, Romania.",
 };
 
 export default function Home() {

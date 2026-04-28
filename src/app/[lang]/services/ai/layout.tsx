@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI & Machine Learning",
+  title: "AI for Industrial Operations",
   description:
-    "Custom AI solutions, from computer vision and OCR to speech recognition and large language models.",
+    "Industrial computer vision, anomaly detection, and operational LLMs. Vision systems for inspection and robotics, language models over technical documentation, voice for field and floor.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

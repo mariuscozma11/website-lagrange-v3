@@ -20,10 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lagrangeengineering.ro"),
   title: {
-    default: "Lagrange",
-    template: "%s - Lagrange",
+    default: "Lagrange Engineering | Industrial IoT, Embedded, Automation",
+    template: "%s - Lagrange Engineering",
   },
-  description: "Software engineering team building AI systems, web applications, and mobile apps. Based in Timisoara, Romania.",
+  description: "Industrial IoT, automation, and embedded systems. Machine connectivity, real-time monitoring, vision systems, and edge computing for manufacturing and physical operations. Based in Timișoara, Romania.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
