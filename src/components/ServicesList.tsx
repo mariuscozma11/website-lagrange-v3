@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ReactNode } from "react";
 
@@ -16,7 +14,6 @@ export interface ServiceItem {
 
 interface ServicesListProps {
   services: ServiceItem[];
-  caseStudiesLinkKey: string;
 }
 
 function DefaultPlaceholder() {
@@ -29,8 +26,8 @@ function DefaultPlaceholder() {
   );
 }
 
-export default function ServicesList({ services, caseStudiesLinkKey }: ServicesListProps) {
-  const { t, language } = useLanguage();
+export default function ServicesList({ services }: ServicesListProps) {
+  const { t } = useLanguage();
 
   return (
     <div className="flex flex-col gap-16 lg:gap-24">
@@ -62,13 +59,6 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
               <p className="mt-4 text-neutral-600 dark:text-neutral-400 text-base md:text-lg max-w-lg">
                 {t(service.descriptionKey)}
               </p>
-              <Link
-                href={`/${language}/case-studies?tag=${service.tag}`}
-                className="inline-flex items-center gap-2 mt-6 text-primary hover:text-primary/80 transition-colors group"
-              >
-                {t(caseStudiesLinkKey)}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
             </div>
           </motion.div>
         );

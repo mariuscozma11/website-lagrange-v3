@@ -112,10 +112,7 @@ export default function AutomationServicePage() {
 
       {/* Services List */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
-        <ServicesList
-          services={automationServices}
-          caseStudiesLinkKey="services.automation.relatedStudies"
-        />
+        <ServicesList services={automationServices} />
       </section>
 
       {/* Technologies Grid */}

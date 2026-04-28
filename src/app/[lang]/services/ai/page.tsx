@@ -84,10 +84,7 @@ export default function AIServicePage() {
 
       {/* Services List */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
-        <ServicesList
-          services={aiServices}
-          caseStudiesLinkKey="services.ai.relatedStudies"
-        />
+        <ServicesList services={aiServices} />
       </section>
 
       {/* Technologies Grid */}
