@@ -11,6 +11,7 @@ export interface ServiceItem {
   descriptionKey: string;
   tag: string;
   element?: ReactNode;
+  slug?: string;
 }
 
 interface ServicesListProps {
@@ -39,11 +40,12 @@ export default function ServicesList({ services, caseStudiesLinkKey }: ServicesL
         return (
           <motion.div
             key={service.titleKey}
+            id={service.slug}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-16`}
+            className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-16 scroll-mt-24`}
           >
             {/* Interactive Element */}
             <div className="w-full lg:flex-1 flex justify-center order-2 lg:order-none">

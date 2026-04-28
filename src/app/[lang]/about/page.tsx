@@ -2,7 +2,6 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
-import { Check } from "lucide-react";
 import ContactCTA from "@/components/ContactCTA";
 import { Terminal } from "@/components/ui/terminal";
 
@@ -237,45 +236,35 @@ export default function AboutPage() {
 
       {/* Principles */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
-        <div className="max-w-3xl">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 mb-8"
-          >
-            {t("about.principles.title")}{" "}
-            <span className="text-primary">{t("about.principles.titleAccent")}</span>
-          </motion.h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 mb-10"
+        >
+          {t("about.principles.title")}{" "}
+          <span className="text-primary">{t("about.principles.titleAccent")}</span>
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {principles.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className={`py-6 ${i > 0 ? "border-t border-dashed border-neutral-300 dark:border-neutral-700" : ""}`}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className={`p-6 lg:p-8 border-dashed border-neutral-300 dark:border-neutral-700 flex flex-col items-center text-center ${
+                i > 0 ? "max-md:border-t" : ""
+              } ${i < principles.length - 1 ? "md:border-r" : ""}`}
             >
-              <div className="flex items-start gap-4">
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, type: "spring", bounce: 0.4 }}
-                  className="shrink-0 mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center"
-                >
-                  <Check className="w-3 h-3 text-primary" />
-                </motion.div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 leading-snug">
-                    {t(p.titleKey)}
-                  </h3>
-                  <p className="mt-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                    {t(p.textKey)}
-                  </p>
-                </div>
-              </div>
+              <h3 className="text-base sm:text-lg font-semibold text-neutral-800 dark:text-neutral-200 leading-snug">
+                {t(p.titleKey)}
+              </h3>
+              <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-sm">
+                {t(p.textKey)}
+              </p>
             </motion.div>
           ))}
         </div>

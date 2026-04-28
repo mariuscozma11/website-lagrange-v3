@@ -9,18 +9,19 @@ import DefectInspection from "@/components/interactive/DefectInspection";
 import BinPicking from "@/components/interactive/BinPicking";
 import OCRScan from "@/components/interactive/OCRScan";
 import ContactCTA from "@/components/ContactCTA";
+import Deliverables from "@/components/Deliverables";
 
 const technologies: Technology[] = [
   { name: "PyTorch", image: "/tech/pytorch.svg" },
-  { name: "TensorFlow", image: "/tech/tensorflow.svg" },
+  { name: "YOLO / Ultralytics", image: "/tech/ultralytics.svg" },
   { name: "OpenCV", image: "/tech/opencv.svg" },
+  { name: "NVIDIA Jetson", image: "/tech/nvidia-jetson-blk.png", imageDark: "/tech/nvidia-jetson-wht.png" },
+  { name: "ONNX", image: "/tech/onnx.svg" },
   { name: "C++", image: "/tech/cplusplus.svg" },
   { name: "Python", image: "/tech/python.svg" },
-  { name: "ONNX", image: "/tech/onnx.svg" },
   { name: "Hugging Face", image: "/tech/huggingface.svg" },
-  { name: "scikit-learn", image: "/tech/scikit-learn.svg" },
-  { name: "NumPy", image: "/tech/numpy.svg" },
   { name: "Cognex", image: "/tech/cognex.svg" },
+  { name: "Halcon", image: "/tech/halcon.svg" },
   { name: "FastAPI", image: "/tech/fastapi.svg" },
   { name: "Docker", image: "/tech/docker.svg" },
 ];
@@ -93,6 +94,8 @@ export default function AIServicePage() {
       <section className="max-w-[1440px] mx-auto pb-16 xl:pb-24 px-6">
         <TechGrid technologies={technologies} title={t("services.ai.technologies")} />
       </section>
+
+      <Deliverables />
 
       {/* FAQ */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">

@@ -6,22 +6,22 @@ import TechGrid, { type Technology } from "@/components/TechGrid";
 import FAQ from "@/components/FAQ";
 import ServicesList from "@/components/ServicesList";
 import ContactCTA from "@/components/ContactCTA";
+import Deliverables from "@/components/Deliverables";
 import IntegrationBridge from "@/components/interactive/IntegrationBridge";
 import LadderLogic from "@/components/interactive/LadderLogic";
 import ProcessMimic from "@/components/interactive/ProcessMimic";
 import RobotArm from "@/components/interactive/RobotArm";
-import HealthMonitor from "@/components/interactive/HealthMonitor";
 import OEEDashboard from "@/components/interactive/OEEDashboard";
 import DashboardDemo from "@/components/interactive/DashboardDemo";
 
 const technologies: Technology[] = [
   { name: "Siemens", image: "/tech/siemens.svg" },
   { name: "Beckhoff", image: "/tech/beckhoff.svg" },
+  { name: "OPC UA", image: "/tech/opcua.svg" },
   { name: "MQTT", image: "/tech/mqtt.svg" },
-  { name: "Kafka", image: "/tech/kafka.svg" },
   { name: "Grafana", image: "/tech/grafana.svg" },
   { name: "InfluxDB", image: "/tech/influxdb.svg" },
-  { name: "Raspberry Pi", image: "/tech/raspberrypi.svg" },
+  { name: "Siemens IOT2050", image: "/tech/siemens-iot2050.svg" },
   { name: "ESP32", image: "/tech/esp32.svg" },
   { name: "Python", image: "/tech/python.svg" },
   { name: "Node-RED", image: "/tech/nodered.svg" },
@@ -40,42 +40,42 @@ const faqItems = [
 
 const automationServices = [
   {
+    slug: "integration",
     titleKey: "services.automation.integration.title",
     descriptionKey: "services.automation.integration.description",
     tag: "automation",
     element: <IntegrationBridge />,
   },
   {
+    slug: "plc",
     titleKey: "services.automation.plc.title",
     descriptionKey: "services.automation.plc.description",
     tag: "automation",
     element: <LadderLogic />,
   },
   {
+    slug: "hmi",
     titleKey: "services.automation.hmi.title",
     descriptionKey: "services.automation.hmi.description",
     tag: "automation",
     element: <ProcessMimic />,
   },
   {
+    slug: "robotics",
     titleKey: "services.automation.robotics.title",
     descriptionKey: "services.automation.robotics.description",
     tag: "automation",
     element: <RobotArm />,
   },
   {
-    titleKey: "services.automation.predictive.title",
-    descriptionKey: "services.automation.predictive.description",
-    tag: "automation",
-    element: <HealthMonitor />,
-  },
-  {
+    slug: "oee",
     titleKey: "services.automation.oee.title",
     descriptionKey: "services.automation.oee.description",
     tag: "automation",
     element: <OEEDashboard />,
   },
   {
+    slug: "portals",
     titleKey: "services.automation.portals.title",
     descriptionKey: "services.automation.portals.description",
     tag: "automation",
@@ -125,10 +125,12 @@ export default function AutomationServicePage() {
 
       {/* Closing line */}
       <section className="max-w-[1440px] mx-auto pb-16 xl:pb-24 px-6">
-        <p className="max-w-3xl text-lg text-neutral-600 dark:text-neutral-400 italic">
+        <p className="max-w-3xl mx-auto text-center text-lg text-neutral-600 dark:text-neutral-400 italic">
           {t("services.automation.closing")}
         </p>
       </section>
+
+      <Deliverables />
 
       {/* FAQ */}
       <section className="max-w-[1440px] mx-auto py-16 xl:py-24 px-6">
