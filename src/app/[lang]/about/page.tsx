@@ -61,6 +61,12 @@ const partners = [
     specializationKey: "about.team.partner1.specialization",
     descriptionKey: "about.team.partner1.description",
   },
+  {
+    initials: "CX",
+    nameKey: "about.team.partner2.name",
+    specializationKey: "about.team.partner2.specialization",
+    descriptionKey: "about.team.partner2.description",
+  },
 ];
 
 export default function AboutPage() {
@@ -145,16 +151,6 @@ export default function AboutPage() {
           <span className="text-primary">{t("about.team.titleAccent")}</span>
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-400"
-        >
-          {t("about.team.description")}
-        </motion.p>
-
         {/* Co-founder cards */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {founders.map((f, i) => (
@@ -217,11 +213,11 @@ export default function AboutPage() {
                 <div className="shrink-0 w-14 h-14 rounded-md border border-dashed border-neutral-400/60 dark:border-neutral-500/60 flex items-center justify-center font-mono text-base font-bold text-neutral-600 dark:text-neutral-300">
                   {p.initials}
                 </div>
-                <div className="min-w-0 pr-16">
+                <div className="min-w-0 pr-2">
                   <h3 className="text-base sm:text-lg font-semibold text-neutral-800 dark:text-neutral-200">
                     {t(p.nameKey)}
                   </h3>
-                  <p className="mt-1 text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                  <p className="mt-1.5 text-xs font-mono text-neutral-500 dark:text-neutral-400 leading-relaxed">
                     {t(p.specializationKey)}
                   </p>
                 </div>
