@@ -12,7 +12,6 @@ import LadderLogic from "@/components/interactive/LadderLogic";
 import ProcessMimic from "@/components/interactive/ProcessMimic";
 import RobotArm from "@/components/interactive/RobotArm";
 import OEEDashboard from "@/components/interactive/OEEDashboard";
-import DashboardDemo from "@/components/interactive/DashboardDemo";
 
 const technologies: Technology[] = [
   { name: "Siemens", image: "/tech/siemens.svg" },
@@ -22,7 +21,7 @@ const technologies: Technology[] = [
   { name: "Grafana", image: "/tech/grafana.svg" },
   { name: "InfluxDB", image: "/tech/influxdb.svg" },
   { name: "Siemens IOT2050", image: "/tech/siemens-iot2050.svg" },
-  { name: "ESP32", image: "/tech/esp32.svg" },
+  { name: "Kafka", image: "/tech/kafka.svg" },
   { name: "Python", image: "/tech/python.svg" },
   { name: "Node-RED", image: "/tech/nodered.svg" },
   { name: "Docker", image: "/tech/docker.svg" },
@@ -73,13 +72,6 @@ const automationServices = [
     descriptionKey: "services.automation.oee.description",
     tag: "automation",
     element: <OEEDashboard />,
-  },
-  {
-    slug: "portals",
-    titleKey: "services.automation.portals.title",
-    descriptionKey: "services.automation.portals.description",
-    tag: "automation",
-    element: <DashboardDemo />,
   },
 ];
 

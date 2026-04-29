@@ -16,7 +16,7 @@ const technologies: Technology[] = [
   { name: "YOLO / Ultralytics", image: "/tech/ultralytics.svg" },
   { name: "OpenCV", image: "/tech/opencv.svg" },
   { name: "NVIDIA Jetson", image: "/tech/nvidia-jetson-blk.png", imageDark: "/tech/nvidia-jetson-wht.png" },
-  { name: "ONNX", image: "/tech/onnx.svg" },
+  { name: "Keyence", image: "/tech/keyence.svg" },
   { name: "C++", image: "/tech/cplusplus.svg" },
   { name: "Python", image: "/tech/python.svg" },
   { name: "Hugging Face", image: "/tech/huggingface.svg" },
