@@ -14,13 +14,13 @@ import RobotArm from "@/components/interactive/RobotArm";
 import OEEDashboard from "@/components/interactive/OEEDashboard";
 
 const technologies: Technology[] = [
-  { name: "Siemens", image: "/tech/siemens.svg" },
+  { name: "OMRON", image: "/tech/omron.svg", imageDark: "/tech/omron-dark.svg" },
   { name: "Beckhoff", image: "/tech/beckhoff.svg" },
   { name: "OPC UA", image: "/tech/opcua.svg" },
   { name: "MQTT", image: "/tech/mqtt.svg" },
   { name: "Grafana", image: "/tech/grafana.svg" },
   { name: "InfluxDB", image: "/tech/influxdb.svg" },
-  { name: "Siemens IOT2050", image: "/tech/siemens-iot2050.svg" },
+  { name: "NVIDIA Jetson", image: "/tech/nvidia-jetson-blk.png", imageDark: "/tech/nvidia-jetson-wht.png" },
   { name: "Kafka", image: "/tech/kafka.svg" },
   { name: "Python", image: "/tech/python.svg" },
   { name: "Node-RED", image: "/tech/nodered.svg" },
