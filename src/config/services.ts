@@ -1,4 +1,4 @@
-import { BrainCircuit, Factory } from "lucide-react";
+import { BrainCircuit, CircuitBoard, Factory } from "lucide-react";
 
 export const services = [
   {
@@ -16,5 +16,13 @@ export const services = [
     href: "/services/ai",
     image: "/ai-backdrop.png",
     colSpan: "lg:col-span-2",
+  },
+  {
+    titleKey: "services.controlPanels.title",
+    descriptionKey: "services.controlPanels.description",
+    Icon: CircuitBoard,
+    href: "/services/control-panels",
+    image: "/iiot.png",
+    colSpan: "lg:col-span-6",
   },
 ];
