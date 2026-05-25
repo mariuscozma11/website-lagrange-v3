@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-// import CaseStudiesCTA from "@/components/CaseStudiesCTA";
 import BlogCTA from "@/components/BlogCTA";
 import AboutTeaser from "@/components/AboutTeaser";
 import ContactCTA from "@/components/ContactCTA";
@@ -17,7 +16,6 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      {/* <CaseStudiesCTA /> */}
       <AboutTeaser />
       <BlogCTA />
       <ContactCTA />

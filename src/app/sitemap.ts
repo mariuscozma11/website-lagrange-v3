@@ -30,11 +30,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "", priority: 1, changeFrequency: "weekly" as const },
     { path: "/services/automation", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/ai", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/services/control-panels", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
-    { path: "/case-studies", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
-    { path: "/demos", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
   ];
@@ -49,32 +48,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Dynamic pages from Ghost
-  const [caseStudySlugs, articleSlugs, demoSlugs] = await Promise.all([
-    getPostSlugs("case-studies"),
-    getPostSlugs("articles"),
-    getPostSlugs("technical-demos"),
-  ]);
+  const articleSlugs = await getPostSlugs("articles");
 
-  const dynamicEntries = languages.flatMap((lang) => [
-    ...caseStudySlugs.map((slug) => ({
-      url: `${baseUrl}/${lang}/case-studies/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-    ...articleSlugs.map((slug) => ({
+  const dynamicEntries = languages.flatMap((lang) =>
+    articleSlugs.map((slug) => ({
       url: `${baseUrl}/${lang}/blog/${slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    })),
-    ...demoSlugs.map((slug) => ({
-      url: `${baseUrl}/${lang}/demos/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
-  ]);
+    }))
+  );
 
   return [...staticEntries, ...dynamicEntries];
 }

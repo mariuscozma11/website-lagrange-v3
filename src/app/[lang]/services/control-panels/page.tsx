@@ -34,7 +34,6 @@ const faqItems = [
   { questionKey: "services.controlPanels.faq.q3", answerKey: "services.controlPanels.faq.a3" },
   { questionKey: "services.controlPanels.faq.q4", answerKey: "services.controlPanels.faq.a4" },
   { questionKey: "services.controlPanels.faq.q5", answerKey: "services.controlPanels.faq.a5" },
-  { questionKey: "services.controlPanels.faq.q6", answerKey: "services.controlPanels.faq.a6" },
 ];
 
 const panelServices = [

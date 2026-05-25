@@ -1,6 +1,6 @@
 import GhostContentAPI from "@tryghost/content-api";
 
-const CATEGORY_TAGS = ["articles", "case-studies", "technical-demos"];
+const CATEGORY_TAGS = ["articles"];
 
 const api = new GhostContentAPI({
   url: process.env.GHOST_URL!,
@@ -115,21 +115,6 @@ export async function getPostBySlug(
   } catch {
     return null;
   }
-}
-
-/**
- * Fetch all tags excluding the main category tags.
- * These are the filterable tags shown in the UI.
- */
-export async function getFilterTags(): Promise<GhostTag[]> {
-  const tags = await api.tags.browse({ limit: "all" });
-  return tags
-    .filter((t) => !CATEGORY_TAGS.includes(t.slug))
-    .map((t) => ({
-      id: t.id,
-      slug: t.slug,
-      name: t.name || t.slug,
-    }));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

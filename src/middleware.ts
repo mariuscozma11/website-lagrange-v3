@@ -45,9 +45,13 @@ export function middleware(request: NextRequest) {
     (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
   );
 
-  // If pathname already has a language prefix, continue
+  // If pathname already has a language prefix, attach headers + continue
   if (pathnameHasLanguage) {
-    return NextResponse.next();
+    const lang = pathname.split('/')[1];
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-pathname', pathname);
+    requestHeaders.set('x-lang', lang);
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
   // Detect preferred language

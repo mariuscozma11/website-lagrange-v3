@@ -4,21 +4,18 @@ import { getPosts } from "@/lib/ghost";
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const category = searchParams.get("category") || "articles";
-  const filterTags = searchParams.get("tags")?.split(",").filter(Boolean) || [];
-  const search = searchParams.get("search") || "";
   const page = parseInt(searchParams.get("page") || "1", 10);
   const limit = parseInt(searchParams.get("limit") || "12", 10);
 
-  const validCategories = ["articles", "case-studies", "technical-demos"];
-  if (!validCategories.includes(category)) {
+  if (category !== "articles") {
     return NextResponse.json({ error: "Invalid category" }, { status: 400 });
   }
 
   try {
     const result = await getPosts({
       categoryTag: category,
-      filterTags,
-      search,
+      filterTags: [],
+      search: "",
       page,
       limit,
     });
