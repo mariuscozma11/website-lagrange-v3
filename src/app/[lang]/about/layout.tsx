@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "A small team of engineers in Timișoara, Romania. Industrial IoT, automation, and embedded systems for manufacturing and adjacent physical operations.",
+    "A team of engineers in Timișoara, Romania, building industrial automation end to end. Control panels, PLC and robotics, plus the modern IIoT, edge, and vision layer on top.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

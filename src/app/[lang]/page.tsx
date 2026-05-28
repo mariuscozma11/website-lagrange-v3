@@ -8,7 +8,7 @@ import ContactCTA from "@/components/ContactCTA";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Industrial IoT, automation, and embedded systems specialists. We build the modern software, data, and edge layer for factories, warehouses, fields, and infrastructure. Based in Timișoara, Romania.",
+    "Full-stack industrial automation, from the control cabinet to the dashboard. Control panels, PLC and robotics, vision and IIoT. One team for the hardware on the floor and the software and data on top. Based in Timișoara, Romania.",
 };
 
 export default function Home() {

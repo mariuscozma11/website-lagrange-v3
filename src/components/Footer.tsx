@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Facebook, Github, Linkedin } from "lucide-react";
+import { Instagram, Facebook, GitBranch, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
 import { services } from "@/config/services";
@@ -11,7 +11,7 @@ import { companyLinks } from "@/config/company";
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/lagrangeengineering/", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578943962674", label: "Facebook" },
-  { icon: Github, href: "https://github.com/lagrangeengineering", label: "GitHub" },
+  { icon: GitBranch, href: "https://git.lagrangeengineering.ro", label: "Git" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/106594690/", label: "LinkedIn" },
 ];
 
