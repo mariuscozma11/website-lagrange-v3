@@ -105,12 +105,23 @@ export default function Footer() {
           <ul className="flex flex-col gap-2">
             {companyLinks.map((link) => (
               <li key={link.titleKey}>
-                <Link
-                  href={`/${language}${link.href}`}
-                  className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
-                >
-                  {t(link.titleKey)}
-                </Link>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                  >
+                    {t(link.titleKey)}
+                  </a>
+                ) : (
+                  <Link
+                    href={`/${language}${link.href}`}
+                    className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                  >
+                    {t(link.titleKey)}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

@@ -3,16 +3,16 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import type { GhostPost } from "@/lib/ghost";
+import { BLOG_URL } from "@/config/company";
 
 function PostImage({ src, alt }: { src: string; alt: string }) {
-  const [loaded, setLoaded] = useState(false);
+  const [done, setDone] = useState(false);
   return (
     <>
-      {!loaded && (
+      {!done && (
         <div className="absolute inset-0 flex items-center justify-center bg-neutral-100 dark:bg-neutral-800">
           <div className="w-5 h-5 rounded-full border-2 border-neutral-300 dark:border-neutral-600 border-t-primary animate-spin" />
         </div>
@@ -21,8 +21,10 @@ function PostImage({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         fill
-        className={`object-cover transition-all duration-500 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
-        onLoad={() => setLoaded(true)}
+        unoptimized
+        className={`object-cover transition-all duration-500 group-hover:scale-105 ${done ? "opacity-100" : "opacity-0"}`}
+        onLoad={() => setDone(true)}
+        onError={() => setDone(true)}
       />
     </>
   );
@@ -65,13 +67,15 @@ export default function BlogCTA() {
           {t("blog.title")}
         </h2>
 
-        <Link
-          href={`/${language}/blog`}
+        <a
+          href={BLOG_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100 transition-colors"
         >
           {t("blog.viewAll")}
           <ArrowRight className="h-3 w-3" />
-        </Link>
+        </a>
       </motion.div>
 
       {loading ? (
@@ -107,8 +111,10 @@ export default function BlogCTA() {
               transition={{ duration: 0.4 }}
               className="lg:flex-1 border-b lg:border-b-0 lg:border-r border-dashed border-neutral-300 dark:border-neutral-700 pb-6 lg:pb-0 lg:pr-6"
             >
-              <Link
-                href={`/${language}/blog/${featured.slug}`}
+              <a
+                href={`${BLOG_URL}/${featured.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block"
               >
                 {/* Image */}
@@ -161,13 +167,13 @@ export default function BlogCTA() {
                     </span>
                   ))}
                 </div>
-              </Link>
+              </a>
             </motion.div>
           )}
 
           {/* Rest - compact list */}
           <div className="lg:flex-1 flex flex-col">
-            {rest.map((post, index) => (
+            {rest.map((post) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 15 }}
@@ -175,8 +181,10 @@ export default function BlogCTA() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3 }}
               >
-                <Link
-                  href={`/${language}/blog/${post.slug}`}
+                <a
+                  href={`${BLOG_URL}/${post.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex gap-4 py-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 last:border-b-0 hover:bg-neutral-50 dark:hover:bg-neutral-800/30 transition-colors -mx-2 px-2 rounded"
                 >
                   {/* Thumbnail */}
@@ -218,7 +226,7 @@ export default function BlogCTA() {
                       {post.excerpt}
                     </p>
                   </div>
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>

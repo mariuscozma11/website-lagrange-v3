@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{#post}}
+<article class="post container">
+    <header class="post-header">
+        <h1 class="post-title">{{title}}</h1>
+    </header>
+
+    {{#if feature_image}}
+        <figure class="post-feature-image">
+            <img src="{{img_url feature_image size="xl"}}" alt="{{title}}" />
+            <span class="bracket tl"></span>
+            <span class="bracket tr"></span>
+            <span class="bracket bl"></span>
+            <span class="bracket br"></span>
+        </figure>
+    {{/if}}
+
+    <div class="post-content gh-content">
+        {{content}}
+    </div>
+
+    <footer class="post-footer">
+        <a class="back-to-blog" href="{{@site.url}}">&larr; All posts</a>
+    </footer>
+</article>
+{{/post}}

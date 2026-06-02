@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{meta_title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    {{!-- Theme stylesheet --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div class="site-wrap">
+        <header class="site-header">
+            <div class="container site-header-inner">
+                <a class="back-to-site" href="https://lagrangeengineering.ro">
+                    <span class="back-arrow" aria-hidden="true">&larr;</span>
+                    <span class="back-label">Back to website</span>
+                </a>
+
+                <a class="site-brand" href="{{@site.url}}">
+                    <img class="site-logo" src="{{asset "images/lagrange-black.png"}}" alt="{{@site.title}}" />
+                </a>
+            </div>
+        </header>
+
+        <main class="site-main">
+            {{{body}}}
+        </main>
+
+        <footer class="site-footer">
+            <div class="container site-footer-inner">
+                <span class="footer-copy">&copy; {{date format="YYYY"}} {{@site.title}}</span>
+                <a class="footer-link" href="https://lagrangeengineering.ro">lagrangeengineering.ro</a>
+            </div>
+        </footer>
+    </div>
+
+    {{ghost_foot}}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "lagrange",
+  "description": "Lagrange Engineering blog theme. Matches the main lagrangeengineering.ro site: dark-first, dashed borders, monospace accents, industrial green.",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Lagrange Engineering"
+  },
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+      "xs": { "width": 160 },
+      "s": { "width": 400 },
+      "m": { "width": 800 },
+      "l": { "width": 1200 },
+      "xl": { "width": 2000 }
+    },
+    "card_assets": true
+  }
+}

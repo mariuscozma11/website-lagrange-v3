@@ -1,0 +1,21 @@
+{{!< default}}
+
+<section class="container">
+    <header class="page-head">
+        <span class="page-head-kicker">Lagrange Engineering</span>
+        <h1 class="page-head-title">From the <span class="accent">blog</span></h1>
+        <p class="page-head-desc">Engineering notes, technical deep-dives, and lessons from building industrial automation end to end.</p>
+    </header>
+
+    {{#if posts}}
+        <div class="post-grid">
+            {{#foreach posts}}
+                {{> post-card}}
+            {{/foreach}}
+        </div>
+
+        {{pagination}}
+    {{else}}
+        <p class="empty-state">No posts yet. Check back soon.</p>
+    {{/if}}
+</section>

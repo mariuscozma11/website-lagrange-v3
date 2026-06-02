@@ -125,10 +125,17 @@ export default function NavBar() {
                 <DropdownMenuContent align="start" className="w-56">
                   {companyLinks.map((link) => (
                     <DropdownMenuItem key={link.titleKey} asChild>
-                      <Link href={`/${language}${link.href}`} className="flex items-center gap-2 cursor-pointer">
-                        <link.Icon className="h-4 w-4" />
-                        {t(link.titleKey)}
-                      </Link>
+                      {link.external ? (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+                          <link.Icon className="h-4 w-4" />
+                          {t(link.titleKey)}
+                        </a>
+                      ) : (
+                        <Link href={`/${language}${link.href}`} className="flex items-center gap-2 cursor-pointer">
+                          <link.Icon className="h-4 w-4" />
+                          {t(link.titleKey)}
+                        </Link>
+                      )}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -201,14 +208,27 @@ export default function NavBar() {
                         <ul className="flex flex-col gap-3">
                           {companyLinks.map((link) => (
                             <li key={link.titleKey}>
-                              <Link
-                                href={`/${language}${link.href}`}
-                                onClick={() => setSheetOpen(false)}
-                                className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
-                              >
-                                <link.Icon className="h-4 w-4" />
-                                {t(link.titleKey)}
-                              </Link>
+                              {link.external ? (
+                                <a
+                                  href={link.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => setSheetOpen(false)}
+                                  className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                                >
+                                  <link.Icon className="h-4 w-4" />
+                                  {t(link.titleKey)}
+                                </a>
+                              ) : (
+                                <Link
+                                  href={`/${language}${link.href}`}
+                                  onClick={() => setSheetOpen(false)}
+                                  className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+                                >
+                                  <link.Icon className="h-4 w-4" />
+                                  {t(link.titleKey)}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>

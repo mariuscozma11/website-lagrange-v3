@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { BLOG_URL } from "@/config/company";
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -54,7 +55,7 @@ export default function Hero() {
           </Button>
 
           <Button asChild variant="secondary" className="h-10 lg:h-10 text-base px-6 border border-transparent hover:border-border dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors">
-            <Link href={`/${language}/blog`}>{t("hero.cta.secondary")}</Link>
+            <a href={BLOG_URL} target="_blank" rel="noopener noreferrer">{t("hero.cta.secondary")}</a>
           </Button>
         </motion.div>
       </section>

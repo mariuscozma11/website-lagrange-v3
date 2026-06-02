@@ -1,0 +1,57 @@
+{{!< default}}
+
+{{#post}}
+<article class="post container">
+    <header class="post-header">
+        <div class="post-meta">
+            {{#primary_tag}}<a class="post-meta-tag" href="{{url}}">{{name}}</a><span class="sep">/</span>{{/primary_tag}}
+            {{#primary_author}}<span>{{name}}</span>{{/primary_author}}
+            <span class="sep">/</span>
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+            {{#if reading_time}}<span class="sep">/</span><span>{{reading_time}}</span>{{/if}}
+        </div>
+
+        <h1 class="post-title">{{title}}</h1>
+        {{#if custom_excerpt}}<p class="post-subtitle">{{custom_excerpt}}</p>{{/if}}
+    </header>
+
+    {{#if feature_image}}
+        <figure class="post-feature-image">
+            <img src="{{img_url feature_image size="xl"}}"
+                 srcset="{{img_url feature_image size="m"}} 800w, {{img_url feature_image size="l"}} 1200w, {{img_url feature_image size="xl"}} 2000w"
+                 sizes="(max-width: 980px) 100vw, 980px"
+                 alt="{{title}}" />
+            <span class="bracket tl"></span>
+            <span class="bracket tr"></span>
+            <span class="bracket bl"></span>
+            <span class="bracket br"></span>
+        </figure>
+    {{/if}}
+
+    <div class="post-content gh-content">
+        {{content}}
+    </div>
+
+    <footer class="post-footer">
+        {{#if tags}}
+            <div class="post-tags">
+                {{#foreach tags}}<a class="tag-pill" href="{{url}}">{{name}}</a>{{/foreach}}
+            </div>
+        {{/if}}
+
+        <a class="back-to-blog" href="{{@site.url}}">&larr; All posts</a>
+    </footer>
+</article>
+{{/post}}
+
+{{#if @site.members_enabled}}
+    {{#unless @member}}
+        {{#post}}
+            {{#if access}}{{else}}
+                <section class="container gate">
+                    <p>This post is for subscribers.</p>
+                </section>
+            {{/if}}
+        {{/post}}
+    {{/unless}}
+{{/if}}

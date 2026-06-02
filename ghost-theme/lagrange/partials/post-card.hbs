@@ -1,0 +1,36 @@
+<article class="post-card">
+    <a class="post-card-link" href="{{url}}">
+        <div class="post-card-image-wrap">
+            {{#if feature_image}}
+                <img class="post-card-image"
+                     srcset="{{img_url feature_image size="s"}} 400w, {{img_url feature_image size="m"}} 800w, {{img_url feature_image size="l"}} 1200w"
+                     sizes="(max-width: 640px) 100vw, 400px"
+                     src="{{img_url feature_image size="m"}}"
+                     alt="{{title}}"
+                     loading="lazy" />
+            {{else}}
+                <div class="post-card-image-fallback"></div>
+            {{/if}}
+            <span class="bracket tl"></span>
+            <span class="bracket tr"></span>
+            <span class="bracket bl"></span>
+            <span class="bracket br"></span>
+        </div>
+
+        <div class="post-card-meta">
+            {{#primary_author}}<span>{{name}}</span>{{/primary_author}}
+            <span class="sep">/</span>
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time>
+            {{#if reading_time}}<span class="sep">/</span><span>{{reading_time}}</span>{{/if}}
+        </div>
+
+        <h3 class="post-card-title">{{title}}</h3>
+        <p class="post-card-excerpt">{{excerpt}}</p>
+
+        {{#if tags}}
+            <div class="post-card-tags">
+                {{#foreach tags limit="3"}}<span class="tag-pill">{{name}}</span>{{/foreach}}
+            </div>
+        {{/if}}
+    </a>
+</article>

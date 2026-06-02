@@ -74,23 +74,6 @@ export async function getPosts({
   };
 }
 
-/**
- * Fetch a single post by slug.
- */
-export async function getPostBySlug(
-  slug: string
-): Promise<GhostPost | null> {
-  try {
-    const post = await api.posts.read(
-      { slug },
-      { include: ["tags", "authors"] }
-    );
-    return formatPost(post);
-  } catch {
-    return null;
-  }
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formatPost(post: any): GhostPost {
   const p = post;
