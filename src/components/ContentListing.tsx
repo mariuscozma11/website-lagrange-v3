@@ -28,7 +28,6 @@ function PostImage({ src, alt }: { src: string; alt: string }) {
 }
 
 interface ContentListingProps {
-  categoryTag: "articles";
   titleKey: string;
   titleAccentKey: string;
   descriptionKey: string;
@@ -36,7 +35,6 @@ interface ContentListingProps {
 }
 
 export default function ContentListing({
-  categoryTag,
   titleKey,
   titleAccentKey,
   descriptionKey,
@@ -51,10 +49,7 @@ export default function ContentListing({
   const fetchPosts = useCallback(async () => {
     setLoading(true);
     try {
-      const params = new URLSearchParams({
-        category: categoryTag,
-        page: String(page),
-      });
+      const params = new URLSearchParams({ page: String(page) });
 
       const res = await fetch(`/api/content?${params}`);
       const data = await res.json();
@@ -65,7 +60,7 @@ export default function ContentListing({
     } finally {
       setLoading(false);
     }
-  }, [categoryTag, page]);
+  }, [page]);
 
   useEffect(() => {
     fetchPosts();

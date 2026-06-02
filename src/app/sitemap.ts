@@ -9,10 +9,9 @@ const api = new GhostContentAPI({
   version: "v5.0",
 });
 
-async function getPostSlugs(tag: string): Promise<string[]> {
+async function getPostSlugs(): Promise<string[]> {
   try {
     const posts = await api.posts.browse({
-      filter: `tag:${tag}`,
       fields: "slug,updated_at",
       limit: "all",
     });
@@ -48,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Dynamic pages from Ghost
-  const articleSlugs = await getPostSlugs("articles");
+  const articleSlugs = await getPostSlugs();
 
   const dynamicEntries = languages.flatMap((lang) =>
     articleSlugs.map((slug) => ({

@@ -36,7 +36,7 @@ export default function BlogCTA() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const res = await fetch("/api/content?category=articles&limit=4");
+        const res = await fetch("/api/content?limit=4");
         const data = await res.json();
         setPosts(data.posts || []);
       } catch {

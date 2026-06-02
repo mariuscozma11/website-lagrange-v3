@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <ContentListing
-      categoryTag="articles"
       titleKey="blog.page.title"
       titleAccentKey="blog.page.titleAccent"
       descriptionKey="blog.page.description"

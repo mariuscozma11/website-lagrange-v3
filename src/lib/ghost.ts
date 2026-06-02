@@ -1,7 +1,5 @@
 import GhostContentAPI from "@tryghost/content-api";
 
-const CATEGORY_TAGS = ["articles"];
-
 const api = new GhostContentAPI({
   url: process.env.GHOST_URL!,
   key: process.env.GHOST_CONTENT_API_KEY!,
@@ -43,34 +41,21 @@ export interface GhostPaginatedResult {
 }
 
 /**
- * Fetch posts filtered by a main category tag, with optional additional tag filters.
- * When search is provided, we fetch ALL matching posts from Ghost and paginate manually
- * so that search + pagination work correctly together.
+ * Fetch all published posts, paginated.
  */
 export async function getPosts({
-  categoryTag,
-  filterTags = [],
-  search = "",
   page = 1,
   limit = 12,
 }: {
-  categoryTag: string;
-  filterTags?: string[];
-  search?: string;
   page?: number;
   limit?: number;
-}): Promise<GhostPaginatedResult> {
-  const tagFilters = [categoryTag, ...filterTags]
-    .map((t) => `tag:${t}`)
-    .join("+");
-
+} = {}): Promise<GhostPaginatedResult> {
   // Build Ghost browse params - exclude html for listing performance
   const params: Record<string, unknown> = {
     include: "tags,authors",
     fields: "id,slug,title,excerpt,feature_image,published_at,reading_time",
     limit,
     page,
-    filter: tagFilters,
   };
 
   const result = await api.posts.browse(params);
@@ -81,18 +66,7 @@ export async function getPosts({
     }
   ).meta;
 
-  let posts = result.map(formatPost);
-
-  // Client-side search on the current page results
-  // For small datasets this is fine; Ghost Content API doesn't support text search
-  if (search) {
-    const term = search.toLowerCase();
-    posts = posts.filter(
-      (p) =>
-        p.title.toLowerCase().includes(term) ||
-        p.excerpt.toLowerCase().includes(term)
-    );
-  }
+  const posts = result.map(formatPost);
 
   return {
     posts,
@@ -144,7 +118,7 @@ function formatPost(post: any): GhostPost {
     feature_image: p.feature_image as string | null,
     published_at: String(p.published_at),
     reading_time: Number(p.reading_time || 0),
-    tags: tags.filter((t) => !CATEGORY_TAGS.includes(t.slug)),
+    tags,
     html: String(p.html || ""),
     authors,
   };
