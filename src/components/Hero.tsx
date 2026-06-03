@@ -55,7 +55,7 @@ export default function Hero() {
           </Button>
 
           <Button asChild variant="secondary" className="h-10 lg:h-10 text-base px-6 border border-transparent hover:border-border dark:hover:bg-primary dark:hover:text-primary-foreground transition-colors">
-            <a href={BLOG_URL} target="_blank" rel="noopener noreferrer">{t("hero.cta.secondary")}</a>
+            <a href={BLOG_URL}>{t("hero.cta.secondary")}</a>
           </Button>
         </motion.div>
       </section>

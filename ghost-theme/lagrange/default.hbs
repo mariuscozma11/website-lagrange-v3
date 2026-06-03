@@ -19,14 +19,18 @@
     <div class="site-wrap">
         <header class="site-header">
             <div class="container site-header-inner">
-                <a class="back-to-site" href="https://lagrangeengineering.ro">
+                <a class="header-link back-to-site" href="https://lagrangeengineering.ro">
                     <span class="back-arrow" aria-hidden="true">&larr;</span>
                     <span class="back-label">Back to website</span>
                 </a>
 
-                <a class="site-brand" href="{{@site.url}}">
-                    <img class="site-logo" src="{{asset "images/lagrange-black.png"}}" alt="{{@site.title}}" />
-                </a>
+                <div class="site-right">
+                    <a class="header-link nav-blog" href="{{@site.url}}">Blog</a>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <a class="site-brand" href="{{@site.url}}">
+                        <img class="site-logo" src="{{asset "images/lagrange-black.png"}}" alt="{{@site.title}}" />
+                    </a>
+                </div>
             </div>
         </header>
 

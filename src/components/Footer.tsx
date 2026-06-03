@@ -108,8 +108,6 @@ export default function Footer() {
                 {link.external ? (
                   <a
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                   >
                     {t(link.titleKey)}

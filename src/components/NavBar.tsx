@@ -126,7 +126,7 @@ export default function NavBar() {
                   {companyLinks.map((link) => (
                     <DropdownMenuItem key={link.titleKey} asChild>
                       {link.external ? (
-                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+                        <a href={link.href} className="flex items-center gap-2 cursor-pointer">
                           <link.Icon className="h-4 w-4" />
                           {t(link.titleKey)}
                         </a>
@@ -211,8 +211,6 @@ export default function NavBar() {
                               {link.external ? (
                                 <a
                                   href={link.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
                                   onClick={() => setSheetOpen(false)}
                                   className="flex items-center gap-3 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
                                 >
