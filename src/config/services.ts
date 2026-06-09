@@ -22,7 +22,7 @@ export const services = [
     descriptionKey: "services.controlPanels.description",
     Icon: CircuitBoard,
     href: "/services/control-panels",
-    image: "/panels.webp",
+    image: "/panels.png",
     colSpan: "lg:col-span-3",
   },
   {
