@@ -21,29 +21,56 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://novaworks.ro"),
   title: {
-    default: "NovaWorks | Industrial Automation & IIoT",
+    default: "NovaWorks | Industrial Automation Manufacturer & Integrator",
     template: "%s - NovaWorks",
   },
-  description: "Full-stack industrial automation, manufacturer and integrator. Control panels, PLC and robotics, plus IIoT, edge, and vision. From the control cabinet to the dashboard. Based in Timișoara, Romania.",
-  icons: {
-    icon: [
-      { url: "/novaworks-color.png", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [{ url: "/novaworks-color.png" }],
+  description: "Full-stack industrial automation manufacturer and integrator in Timișoara, Romania. We design, build and commission complete systems in-house: mechanical CAD and fabrication, control panels, PLC and robotics, machine vision, plus IIoT and edge. From the control cabinet to the dashboard.",
+  keywords: [
+    "industrial automation",
+    "automation integrator",
+    "control panels",
+    "PLC programming",
+    "industrial robotics",
+    "machine vision",
+    "IIoT",
+    "edge computing",
+    "turnkey automation",
+    "automatizări industriale",
+    "tablouri de automatizare",
+    "integrator automatizări",
+    "Timișoara",
+    "Romania",
+  ],
+  authors: [{ name: "NovaWorks" }],
+  creator: "NovaWorks",
+  publisher: "NovaWorks",
+  alternates: {
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     siteName: "NovaWorks",
-    locale: "en",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    title: "NovaWorks | Industrial Automation Manufacturer & Integrator",
+    description: "We design, build and commission complete automation systems in-house. Control panels, PLC and robotics, machine vision, IIoT and edge. Based in Timișoara, Romania.",
+    url: "https://novaworks.ro",
+    locale: "en_US",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "NovaWorks" }],
   },
   twitter: {
     card: "summary_large_image",
+    title: "NovaWorks | Industrial Automation Manufacturer & Integrator",
+    description: "We design, build and commission complete automation systems in-house. Control panels, PLC and robotics, machine vision, IIoT and edge. Timișoara, Romania.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

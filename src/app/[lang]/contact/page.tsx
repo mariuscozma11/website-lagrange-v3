@@ -93,7 +93,7 @@ export default function ContactPage() {
             ))}
           </motion.ul>
 
-          {/* Social Links */}
+          {/* Social Links hidden for now
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -118,6 +118,7 @@ export default function ContactPage() {
               ))}
             </div>
           </motion.div>
+          */}
         </div>
 
         {/* Right Column - Contact Form */}

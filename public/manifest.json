@@ -1,29 +1,24 @@
 {
   "name": "NovaWorks",
   "short_name": "NovaWorks",
-  "description": "Romanian technology company providing web development, custom applications, and high-quality digital solutions.",
+  "description": "Full-stack industrial automation manufacturer and integrator in Timișoara, Romania. Control panels, PLC and robotics, machine vision, IIoT and edge.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#075985",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/lg-white.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/lg-black.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/novaworks-color.png",
+      "sizes": "703x703",
+      "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/novaworks-color.png",
+      "sizes": "703x703",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["business", "productivity", "technology"],

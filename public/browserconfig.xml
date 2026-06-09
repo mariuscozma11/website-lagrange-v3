@@ -2,8 +2,8 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/lg-white.svg"/>
-            <TileColor>#000000</TileColor>
+            <square150x150logo src="/novaworks-color.png"/>
+            <TileColor>#075985</TileColor>
         </tile>
     </msapplication>
 </browserconfig>
