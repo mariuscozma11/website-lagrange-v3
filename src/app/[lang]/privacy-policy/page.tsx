@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - NovaWorks",
-  description: "Privacy Policy for NovaWorks SRL",
+  description: "Privacy Policy for Inovaworks SRL",
 };
 
 function EnglishContent() {
@@ -12,7 +12,7 @@ function EnglishContent() {
       <p className="text-neutral-500 dark:text-neutral-400">Last updated April 03, 2026</p>
 
       <p>
-        This Privacy Notice for <strong>NovaWorks SRL</strong> (doing business as <strong>NovaWorks</strong>) (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;process&quot;) your personal information when you use our services (&quot;Services&quot;), including when you:
+        This Privacy Notice for <strong>Inovaworks SRL</strong> (doing business as <strong>NovaWorks</strong>) (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;process&quot;) your personal information when you use our services (&quot;Services&quot;), including when you:
       </p>
       <ul>
         <li>Visit our website at <a href="https://novaworks.ro">https://novaworks.ro</a> or any website of ours that links to this Privacy Notice</li>
@@ -84,7 +84,7 @@ function EnglishContent() {
 
       <h2>11. How Can You Contact Us?</h2>
       <p>
-        <strong>NovaWorks SRL</strong><br />
+        <strong>Inovaworks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
         Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />
@@ -106,7 +106,7 @@ function RomanianContent() {
       <p className="text-neutral-500 dark:text-neutral-400">Ultima actualizare: 3 aprilie 2026</p>
 
       <p>
-        Această Notificare de Confidențialitate pentru <strong>NovaWorks SRL</strong> (cu denumirea comercială <strong>NovaWorks</strong>) (&quot;noi&quot; sau &quot;al nostru&quot;), descrie cum și de ce am putea accesa, colecta, stoca, utiliza și/sau partaja (&quot;prelucra&quot;) informațiile dumneavoastră personale când utilizați serviciile noastre (&quot;Servicii&quot;), inclusiv când:
+        Această Notificare de Confidențialitate pentru <strong>Inovaworks SRL</strong> (cu denumirea comercială <strong>NovaWorks</strong>) (&quot;noi&quot; sau &quot;al nostru&quot;), descrie cum și de ce am putea accesa, colecta, stoca, utiliza și/sau partaja (&quot;prelucra&quot;) informațiile dumneavoastră personale când utilizați serviciile noastre (&quot;Servicii&quot;), inclusiv când:
       </p>
       <ul>
         <li>Vizitați site-ul nostru la <a href="https://novaworks.ro">https://novaworks.ro</a> sau orice alt site al nostru care face referire la această Notificare</li>
@@ -177,7 +177,7 @@ function RomanianContent() {
 
       <h2>11. Cum ne puteți contacta?</h2>
       <p>
-        <strong>NovaWorks SRL</strong><br />
+        <strong>Inovaworks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
         Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />

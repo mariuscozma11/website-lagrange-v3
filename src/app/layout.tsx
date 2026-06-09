@@ -63,7 +63,7 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "NovaWorks",
-              legalName: "NovaWorks SRL",
+              legalName: "Inovaworks SRL",
               url: "https://novaworks.ro",
               logo: "https://novaworks.ro/lg-black.svg",
               email: "office@novaworks.ro",

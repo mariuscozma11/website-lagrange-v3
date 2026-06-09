@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions - NovaWorks",
-  description: "Terms and Conditions for NovaWorks SRL services",
+  description: "Terms and Conditions for Inovaworks SRL services",
 };
 
 function EnglishContent() {
@@ -12,7 +12,7 @@ function EnglishContent() {
       <h1>Terms and Conditions</h1>
       <p className="text-neutral-500 dark:text-neutral-400">Last updated April 03, 2026</p>
 
-      <p>These Terms and Conditions (&quot;Terms&quot;) govern the relationship between <strong>NovaWorks SRL</strong>, a company registered in Romania under CUI 51196824, with its registered office at Str. Ioan Alexandru 20, Timisoara, Timis 300323, Romania (&quot;NovaWorks,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), and you (&quot;Client,&quot; &quot;you,&quot; or &quot;your&quot;) regarding the use of our website and the provision of our services.</p>
+      <p>These Terms and Conditions (&quot;Terms&quot;) govern the relationship between <strong>Inovaworks SRL</strong>, a company registered in Romania under CUI 51196824, with its registered office at Str. Ioan Alexandru 20, Timisoara, Timis 300323, Romania (&quot;NovaWorks,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), and you (&quot;Client,&quot; &quot;you,&quot; or &quot;your&quot;) regarding the use of our website and the provision of our services.</p>
       <p>By accessing our website or engaging our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>
 
       <h2>1. Services</h2>
@@ -106,7 +106,7 @@ function EnglishContent() {
 
       <h2>17. Contact and Company Details</h2>
       <p>
-        <strong>NovaWorks SRL</strong><br />
+        <strong>Inovaworks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
         Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />
@@ -125,7 +125,7 @@ function RomanianContent() {
       <h1>Termeni și Condiții</h1>
       <p className="text-neutral-500 dark:text-neutral-400">Ultima actualizare: 3 aprilie 2026</p>
 
-      <p>Acești Termeni și Condiții (&quot;Termeni&quot;) guvernează relația dintre <strong>NovaWorks SRL</strong>, o companie înregistrată în România sub CUI 51196824, cu sediul social la Str. Ioan Alexandru 20, Timișoara, Timiș 300323, România (&quot;NovaWorks,&quot; &quot;noi&quot; sau &quot;al nostru&quot;), și dumneavoastră (&quot;Client,&quot; &quot;dumneavoastră&quot;) privind utilizarea site-ului nostru și furnizarea serviciilor noastre.</p>
+      <p>Acești Termeni și Condiții (&quot;Termeni&quot;) guvernează relația dintre <strong>Inovaworks SRL</strong>, o companie înregistrată în România sub CUI 51196824, cu sediul social la Str. Ioan Alexandru 20, Timișoara, Timiș 300323, România (&quot;NovaWorks,&quot; &quot;noi&quot; sau &quot;al nostru&quot;), și dumneavoastră (&quot;Client,&quot; &quot;dumneavoastră&quot;) privind utilizarea site-ului nostru și furnizarea serviciilor noastre.</p>
       <p>Prin accesarea site-ului nostru sau angajarea serviciilor noastre, sunteți de acord să respectați acești Termeni. Dacă nu sunteți de acord cu vreo parte a acestor Termeni, vă rugăm să nu utilizați site-ul sau serviciile noastre.</p>
 
       <h2>1. Servicii</h2>
@@ -149,7 +149,7 @@ function RomanianContent() {
       <p>La plata integrală a tuturor sumelor datorate în cadrul unui Acord de Proiect:</p>
       <ul>
         <li>Clientul va primi proprietatea deplină asupra întregului cod personalizat, design și livrabile create specific pentru proiect (&quot;IP Proiect&quot;).</li>
-        <li>NovaWorks își păstrează proprietatea asupra oricăror instrumente, biblioteci, framework-uri și cod de uz general preexistente (&quot;IP NovaWorks&quot;) utilizate în proiect. Clientul primește o licență neexclusivă, perpetuă și f��ră redevențe pentru utilizarea IP NovaWorks ca parte a proiectului livrat.</li>
+        <li>NovaWorks își păstrează proprietatea asupra oricăror instrumente, biblioteci, framework-uri și cod de uz general preexistente (&quot;IP NovaWorks&quot;) utilizate în proiect. Clientul primește o licență neexclusivă, perpetuă și fără redevențe pentru utilizarea IP NovaWorks ca parte a proiectului livrat.</li>
         <li>Software-ul terț și componentele open-source utilizate în proiect rămân supuse licențelor respective.</li>
       </ul>
       <p>Până la primirea plății integrale, toate drepturile de proprietate intelectuală asupra livrabilelor rămân la NovaWorks.</p>
@@ -177,7 +177,7 @@ function RomanianContent() {
       </ul>
       <p>După Perioada de Garanție, mentenanța și suportul sunt disponibile pe baza unor acorduri separate.</p>
 
-      <h2>9. Limitarea R��spunderii</h2>
+      <h2>9. Limitarea Răspunderii</h2>
       <p>În limita maximă permisă de legislația română:</p>
       <ul>
         <li>Răspunderea totală a NovaWorks în cadrul oricărui Acord de Proiect nu va depăși sumele totale plătite de Client în cadrul acelui acord specific.</li>
@@ -219,7 +219,7 @@ function RomanianContent() {
 
       <h2>17. Contact și Date Firmă</h2>
       <p>
-        <strong>NovaWorks SRL</strong><br />
+        <strong>Inovaworks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
         Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />
