@@ -37,17 +37,17 @@ const principles = [
 
 const founders = [
   {
+    initials: "VT",
+    nameKey: "about.team.founder2.name",
+    roleKey: "about.team.founder2.role",
+    bioKey: "about.team.founder2.bio",
+  },
+  {
     image: "/team/marius.jpg",
     initials: "MC",
     nameKey: "about.team.founder1.name",
     roleKey: "about.team.founder1.role",
     bioKey: "about.team.founder1.bio",
-  },
-  {
-    initials: "AB",
-    nameKey: "about.team.founder2.name",
-    roleKey: "about.team.founder2.role",
-    bioKey: "about.team.founder2.bio",
   },
 ];
 
