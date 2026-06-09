@@ -3,21 +3,25 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "motion/react";
 import {
-  Code2,
+  PackageCheck,
+  HardDriveDownload,
   Cable,
   BookOpen,
   Users,
   ClipboardCheck,
   ShieldCheck,
+  Wrench,
 } from "lucide-react";
 
 const items = [
-  { Icon: Code2,           titleKey: "deliverables.code.title",       descriptionKey: "deliverables.code.description" },
-  { Icon: Cable,           titleKey: "deliverables.schematics.title", descriptionKey: "deliverables.schematics.description" },
-  { Icon: BookOpen,        titleKey: "deliverables.docs.title",       descriptionKey: "deliverables.docs.description" },
-  { Icon: Users,           titleKey: "deliverables.training.title",   descriptionKey: "deliverables.training.description" },
-  { Icon: ClipboardCheck,  titleKey: "deliverables.acceptance.title", descriptionKey: "deliverables.acceptance.description" },
-  { Icon: ShieldCheck,     titleKey: "deliverables.warranty.title",   descriptionKey: "deliverables.warranty.description" },
+  { Icon: PackageCheck,      titleKey: "deliverables.system.title",     descriptionKey: "deliverables.system.description" },
+  { Icon: HardDriveDownload, titleKey: "deliverables.code.title",       descriptionKey: "deliverables.code.description" },
+  { Icon: Cable,             titleKey: "deliverables.schematics.title", descriptionKey: "deliverables.schematics.description" },
+  { Icon: BookOpen,          titleKey: "deliverables.docs.title",       descriptionKey: "deliverables.docs.description" },
+  { Icon: Users,             titleKey: "deliverables.training.title",   descriptionKey: "deliverables.training.description" },
+  { Icon: ClipboardCheck,    titleKey: "deliverables.acceptance.title", descriptionKey: "deliverables.acceptance.description" },
+  { Icon: ShieldCheck,       titleKey: "deliverables.warranty.title",   descriptionKey: "deliverables.warranty.description" },
+  { Icon: Wrench,            titleKey: "deliverables.spares.title",     descriptionKey: "deliverables.spares.description" },
 ];
 
 export default function Deliverables() {
@@ -46,7 +50,7 @@ export default function Deliverables() {
         {t("deliverables.subtitle")}
       </motion.p>
 
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-300/60 dark:bg-neutral-700/60 border border-neutral-300/60 dark:border-neutral-700/60 rounded-md overflow-hidden">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-300/60 dark:bg-neutral-700/60 border border-neutral-300/60 dark:border-neutral-700/60 rounded-md overflow-hidden">
         {items.map((item, i) => (
           <div key={i} className="bg-background p-6">
             <motion.div
