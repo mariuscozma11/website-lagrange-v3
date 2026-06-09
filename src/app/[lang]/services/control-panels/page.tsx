@@ -25,7 +25,7 @@ const technologies: Technology[] = [
   { name: "EN 61439", image: "/tech/en-61439.svg" },
   { name: "Rittal", image: "/tech/rittal.svg" },
   { name: "Pilz", image: "/tech/pilz.svg" },
-  { name: "OMRON", image: "/tech/omron.svg", imageDark: "/tech/omron-dark.svg" },
+  { name: "OMRON", image: "/tech/omron.svg" },
 ];
 
 const faqItems = [

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -69,10 +70,11 @@ export default function NavBar() {
         {/* Content - stays in place */}
         <div className="relative flex items-center justify-between py-4">
           {/* Logo and Nav Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-5">
             {/* Logo */}
-            <Link href="/" className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
-              NovaWorks
+            <Link href="/" className="flex items-center" aria-label="NovaWorks">
+              <Image src="/novaworks-black.png" alt="NovaWorks" width={36} height={36} priority className="h-9 w-9 dark:hidden" />
+              <Image src="/novaworks-white.png" alt="NovaWorks" width={36} height={36} priority className="hidden h-9 w-9 dark:block" />
             </Link>
 
             {/* Desktop Nav Links */}

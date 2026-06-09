@@ -27,9 +27,10 @@ export const metadata: Metadata = {
   description: "Full-stack industrial automation, manufacturer and integrator. Control panels, PLC and robotics, plus IIoT, edge, and vision. From the control cabinet to the dashboard. Based in Timișoara, Romania.",
   icons: {
     icon: [
+      { url: "/novaworks-color.png", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
+    apple: [{ url: "/novaworks-color.png" }],
   },
   openGraph: {
     type: "website",
@@ -65,7 +66,7 @@ export default async function RootLayout({
               name: "NovaWorks",
               legalName: "Inovaworks SRL",
               url: "https://novaworks.ro",
-              logo: "https://novaworks.ro/lg-black.svg",
+              logo: "https://novaworks.ro/novaworks-color.png",
               email: "office@novaworks.ro",
               telephone: "+40756109881",
               address: {

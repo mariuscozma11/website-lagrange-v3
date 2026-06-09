@@ -28,14 +28,15 @@ export default function Footer() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-4"
         >
-          <Link href="/" className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
-            NovaWorks
+          <Link href="/" className="font-mono text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+            Nova<span className="text-primary">Works</span>
           </Link>
 
           <p className="text-neutral-600 dark:text-neutral-400 text-sm">
             {t("footer.motto")}
           </p>
 
+          {/* Social links hidden for now
           <div className="flex items-center gap-1">
             {socialLinks.map((social) => (
               <a
@@ -50,6 +51,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
+          */}
         </motion.div>
 
         {/* Column 2: Services */}

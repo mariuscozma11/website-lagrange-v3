@@ -146,7 +146,7 @@ export default function Commissioning() {
             SYSTEM READY ✓
           </text>
           <text x={368} y={374} textAnchor="end" className="fill-neutral-500 dark:fill-neutral-500" style={{ fontSize: "9px", fontFamily: "ui-monospace, monospace" }}>
-            HANDED OVER TURNKEY
+            HANDED OVER COMPLETE
           </text>
         </g>
       </svg>

@@ -14,7 +14,7 @@ import RobotArm from "@/components/interactive/RobotArm";
 import OEEDashboard from "@/components/interactive/OEEDashboard";
 
 const technologies: Technology[] = [
-  { name: "OMRON", image: "/tech/omron.svg", imageDark: "/tech/omron-dark.svg" },
+  { name: "OMRON", image: "/tech/omron.svg" },
   { name: "Beckhoff", image: "/tech/beckhoff.svg" },
   { name: "OPC UA", image: "/tech/opcua.svg" },
   { name: "MQTT", image: "/tech/mqtt.svg" },
