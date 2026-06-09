@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 
-const ON = "#16a34a";
+const ON = "#2563eb";
 const OFF = "#6b7280";
 const RAIL = "#525252";
 

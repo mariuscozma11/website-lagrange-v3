@@ -17,10 +17,10 @@ interface Part {
 }
 
 const PARTS: Part[] = [
-  { id: 0, x: 32, y: 30, rot: 18,  color: "#22c55e", label: "part_A", confidence: 97 },
+  { id: 0, x: 32, y: 30, rot: 18,  color: "#3b82f6", label: "part_A", confidence: 97 },
   { id: 1, x: 60, y: 26, rot: -28, color: "#3b82f6", label: "part_B", confidence: 94 },
   { id: 2, x: 46, y: 50, rot: 42,  color: "#f59e0b", label: "part_C", confidence: 91 },
-  { id: 3, x: 28, y: 66, rot: -14, color: "#22c55e", label: "part_A", confidence: 96 },
+  { id: 3, x: 28, y: 66, rot: -14, color: "#3b82f6", label: "part_A", confidence: 96 },
   { id: 4, x: 66, y: 60, rot: 8,   color: "#3b82f6", label: "part_B", confidence: 92 },
   { id: 5, x: 52, y: 76, rot: -52, color: "#f59e0b", label: "part_C", confidence: 89 },
 ];
@@ -267,7 +267,7 @@ export default function BinPicking() {
               backgroundColor:
                 phase === "running"
                   ? isLocked
-                    ? "#22c55e"
+                    ? "#3b82f6"
                     : "#3b82f6"
                   : "#a3a3a3",
             }}

@@ -19,10 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lagrangeengineering.ro"),
+  metadataBase: new URL("https://novaworks.ro"),
   title: {
-    default: "Lagrange Engineering | Industrial Automation & IIoT",
-    template: "%s - Lagrange Engineering",
+    default: "NovaWorks | Industrial Automation & IIoT",
+    template: "%s - NovaWorks",
   },
   description: "Full-stack industrial automation, manufacturer and integrator. Control panels, PLC and robotics, plus IIoT, edge, and vision. From the control cabinet to the dashboard. Based in Timișoara, Romania.",
   icons: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Lagrange",
+    siteName: "NovaWorks",
     locale: "en",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
@@ -62,11 +62,11 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Lagrange Engineering",
-              legalName: "Lagrange Engineering SRL",
-              url: "https://lagrangeengineering.ro",
-              logo: "https://lagrangeengineering.ro/lg-black.svg",
-              email: "office@lagrangeengineering.ro",
+              name: "NovaWorks",
+              legalName: "NovaWorks SRL",
+              url: "https://novaworks.ro",
+              logo: "https://novaworks.ro/lg-black.svg",
+              email: "office@novaworks.ro",
               telephone: "+40756109881",
               address: {
                 "@type": "PostalAddress",

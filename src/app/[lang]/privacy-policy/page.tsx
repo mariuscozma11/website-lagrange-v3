@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Lagrange Engineering",
-  description: "Privacy Policy for Lagrange Engineering SRL",
+  title: "Privacy Policy - NovaWorks",
+  description: "Privacy Policy for NovaWorks SRL",
 };
 
 function EnglishContent() {
@@ -12,15 +12,15 @@ function EnglishContent() {
       <p className="text-neutral-500 dark:text-neutral-400">Last updated April 03, 2026</p>
 
       <p>
-        This Privacy Notice for <strong>Lagrange Engineering SRL</strong> (doing business as <strong>Lagrange</strong>) (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;process&quot;) your personal information when you use our services (&quot;Services&quot;), including when you:
+        This Privacy Notice for <strong>NovaWorks SRL</strong> (doing business as <strong>NovaWorks</strong>) (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;process&quot;) your personal information when you use our services (&quot;Services&quot;), including when you:
       </p>
       <ul>
-        <li>Visit our website at <a href="https://lagrangeengineering.ro">https://lagrangeengineering.ro</a> or any website of ours that links to this Privacy Notice</li>
+        <li>Visit our website at <a href="https://novaworks.ro">https://novaworks.ro</a> or any website of ours that links to this Privacy Notice</li>
         <li>Use our custom software development services</li>
         <li>Engage with us in other related ways, including any marketing or events</li>
       </ul>
       <p>
-        <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a>.
+        <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:office@novaworks.ro">office@novaworks.ro</a>.
       </p>
 
       <h2>1. What Information Do We Collect?</h2>
@@ -74,7 +74,7 @@ function EnglishContent() {
 
       <h2>8. What Are Your Privacy Rights?</h2>
       <p>In the EEA, UK, and Switzerland, you have rights including: access, rectification, erasure, restriction, data portability, and the right to object. Contact us or submit a <a href="https://app.termly.io/dsar/9b41a804-bc73-4b62-8480-3a7623abb3fb" target="_blank" rel="noopener noreferrer">data subject access request</a>.</p>
-      <p><strong>Withdrawing your consent:</strong> You can withdraw your consent at any time by contacting us at <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a>.</p>
+      <p><strong>Withdrawing your consent:</strong> You can withdraw your consent at any time by contacting us at <a href="mailto:office@novaworks.ro">office@novaworks.ro</a>.</p>
 
       <h2>9. Controls for Do-Not-Track Features</h2>
       <p>We do not currently respond to DNT browser signals. If a standard is adopted that we must follow, we will inform you in a revised version of this Privacy Notice.</p>
@@ -84,10 +84,10 @@ function EnglishContent() {
 
       <h2>11. How Can You Contact Us?</h2>
       <p>
-        <strong>Lagrange Engineering SRL</strong><br />
+        <strong>NovaWorks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
-        Email: <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a><br />
+        Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />
         Phone: <a href="tel:+40756109881">+40 756 109 881</a><br /><br />
         CUI: 51196824<br />
         ROONRC: J20505646004
@@ -106,15 +106,15 @@ function RomanianContent() {
       <p className="text-neutral-500 dark:text-neutral-400">Ultima actualizare: 3 aprilie 2026</p>
 
       <p>
-        Această Notificare de Confidențialitate pentru <strong>Lagrange Engineering SRL</strong> (cu denumirea comercială <strong>Lagrange</strong>) (&quot;noi&quot; sau &quot;al nostru&quot;), descrie cum și de ce am putea accesa, colecta, stoca, utiliza și/sau partaja (&quot;prelucra&quot;) informațiile dumneavoastră personale când utilizați serviciile noastre (&quot;Servicii&quot;), inclusiv când:
+        Această Notificare de Confidențialitate pentru <strong>NovaWorks SRL</strong> (cu denumirea comercială <strong>NovaWorks</strong>) (&quot;noi&quot; sau &quot;al nostru&quot;), descrie cum și de ce am putea accesa, colecta, stoca, utiliza și/sau partaja (&quot;prelucra&quot;) informațiile dumneavoastră personale când utilizați serviciile noastre (&quot;Servicii&quot;), inclusiv când:
       </p>
       <ul>
-        <li>Vizitați site-ul nostru la <a href="https://lagrangeengineering.ro">https://lagrangeengineering.ro</a> sau orice alt site al nostru care face referire la această Notificare</li>
+        <li>Vizitați site-ul nostru la <a href="https://novaworks.ro">https://novaworks.ro</a> sau orice alt site al nostru care face referire la această Notificare</li>
         <li>Utilizați serviciile noastre de dezvoltare software personalizat</li>
         <li>Interacționați cu noi în alte moduri, inclusiv marketing sau evenimente</li>
       </ul>
       <p>
-        <strong>Întrebări sau nelămuriri?</strong> Citirea acestei Notificări vă va ajuta să înțelegeți drepturile și opțiunile dumneavoastră privind confidențialitatea. Dacă nu sunteți de acord cu politicile noastre, vă rugăm să nu utilizați Serviciile noastre. Pentru orice întrebări, contactați-ne la <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a>.
+        <strong>Întrebări sau nelămuriri?</strong> Citirea acestei Notificări vă va ajuta să înțelegeți drepturile și opțiunile dumneavoastră privind confidențialitatea. Dacă nu sunteți de acord cu politicile noastre, vă rugăm să nu utilizați Serviciile noastre. Pentru orice întrebări, contactați-ne la <a href="mailto:office@novaworks.ro">office@novaworks.ro</a>.
       </p>
 
       <h2>1. Ce informații colectăm?</h2>
@@ -167,7 +167,7 @@ function RomanianContent() {
 
       <h2>8. Care sunt drepturile dumneavoastră?</h2>
       <p>În SEE, Regatul Unit și Elveția, aveți drepturi inclusiv: acces, rectificare, ștergere, restricționare, portabilitatea datelor și dreptul de a obiecta. Contactați-ne sau trimiteți o <a href="https://app.termly.io/dsar/9b41a804-bc73-4b62-8480-3a7623abb3fb" target="_blank" rel="noopener noreferrer">cerere de acces la date</a>.</p>
-      <p><strong>Retragerea consimțământului:</strong> Puteți retrage consimțământul în orice moment contactându-ne la <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a>.</p>
+      <p><strong>Retragerea consimțământului:</strong> Puteți retrage consimțământul în orice moment contactându-ne la <a href="mailto:office@novaworks.ro">office@novaworks.ro</a>.</p>
 
       <h2>9. Controale pentru funcțiile Do-Not-Track</h2>
       <p>În prezent nu răspundem la semnalele DNT ale browserului. Dacă se adoptă un standard pe care trebuie să-l urmăm, vă vom informa într-o versiune revizuită.</p>
@@ -177,10 +177,10 @@ function RomanianContent() {
 
       <h2>11. Cum ne puteți contacta?</h2>
       <p>
-        <strong>Lagrange Engineering SRL</strong><br />
+        <strong>NovaWorks SRL</strong><br />
         Jud. Timiș, Municipiul Timișoara<br />
         Str. Ioan Alexandru, Nr. 20, Etaj POD, Ap. POD 2<br /><br />
-        Email: <a href="mailto:office@lagrangeengineering.ro">office@lagrangeengineering.ro</a><br />
+        Email: <a href="mailto:office@novaworks.ro">office@novaworks.ro</a><br />
         Telefon: <a href="tel:+40756109881">+40 756 109 881</a><br /><br />
         CUI: 51196824<br />
         ROONRC: J20505646004

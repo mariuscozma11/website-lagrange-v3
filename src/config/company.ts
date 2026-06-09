@@ -1,6 +1,6 @@
 import { BookOpen, Users } from "lucide-react";
 
-export const BLOG_URL = "https://blog.lagrangeengineering.ro";
+export const BLOG_URL = "https://blog.novaworks.ro";
 
 export const companyLinks = [
   {

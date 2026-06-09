@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { useTheme } from "next-themes";
 import { Menu, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -34,14 +32,7 @@ import { companyLinks } from "@/config/company";
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [logoLoaded, setLogoLoaded] = useState(false);
   const { t, language } = useLanguage();
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +45,6 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const logoSrc = resolvedTheme === "dark" ? "/lg-white.svg" : "/lg-black.svg";
 
   return (
     <motion.nav
@@ -81,21 +71,8 @@ export default function NavBar() {
           {/* Logo and Nav Links */}
           <div className="flex items-center gap-8">
             {/* Logo */}
-            <Link href="/" className="relative block w-12 h-12">
-              {(!mounted || !logoLoaded) && (
-                <div className="absolute inset-0 rounded-md bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
-              )}
-              {mounted && (
-                <Image
-                  src={logoSrc}
-                  alt="Lagrange Engineering"
-                  width={48}
-                  height={48}
-                  priority
-                  onLoad={() => setLogoLoaded(true)}
-                  className={`transition-opacity duration-200 ${logoLoaded ? "opacity-100" : "opacity-0"}`}
-                />
-              )}
+            <Link href="/" className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+              NovaWorks
             </Link>
 
             {/* Desktop Nav Links */}

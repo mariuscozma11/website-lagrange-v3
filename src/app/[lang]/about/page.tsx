@@ -51,17 +51,6 @@ const founders = [
   },
 ];
 
-const partners = [
-  {
-    image: "/partners/corox.svg",
-    href: "https://coroxengineering.ro",
-    initials: "CX",
-    nameKey: "about.team.partner1.name",
-    specializationKey: "about.team.partner1.specialization",
-    descriptionKey: "about.team.partner1.description",
-  },
-];
-
 export default function AboutPage() {
   const { t } = useLanguage();
 
@@ -123,7 +112,7 @@ export default function AboutPage() {
                   "node-red[1842]: [warn] Reconnecting historian: timeout 2s",
                 ],
               }}
-              username="lagrange"
+              username="novaworks"
               typingSpeed={40}
               enableSound={false}
             />
@@ -184,68 +173,6 @@ export default function AboutPage() {
                 {t(f.bioKey)}
               </p>
             </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Partner network */}
-      <section className="max-w-[1440px] mx-auto pt-4 pb-16 xl:pb-24 px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200"
-        >
-          {t("about.team.partners.title")}{" "}
-          <span className="text-primary">{t("about.team.partners.titleAccent")}</span>
-        </motion.h2>
-
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:gap-8 max-w-2xl">
-          {partners.map((p, i) => (
-            <motion.a
-              key={i}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="group relative block p-6 sm:p-7 rounded-md border border-dashed border-neutral-300 dark:border-neutral-700 transition-colors duration-300 hover:border-solid hover:border-primary"
-            >
-              <span className="absolute top-3 right-3 px-1.5 py-0.5 rounded-sm font-mono text-[9px] font-bold tracking-wider text-neutral-500 dark:text-neutral-400 border border-neutral-300 dark:border-neutral-700">
-                {t("about.team.partnerTag")}
-              </span>
-              <div className="flex items-start gap-4">
-                {p.image ? (
-                  <div className="shrink-0 w-14 h-14 rounded-md overflow-hidden border border-neutral-400/60 dark:border-neutral-500/60">
-                    <Image
-                      src={p.image}
-                      alt={t(p.nameKey)}
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="shrink-0 w-14 h-14 rounded-md border border-dashed border-neutral-400/60 dark:border-neutral-500/60 flex items-center justify-center font-mono text-base font-bold text-neutral-600 dark:text-neutral-300">
-                    {p.initials}
-                  </div>
-                )}
-                <div className="min-w-0 pr-2">
-                  <h3 className="text-base sm:text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-                    {t(p.nameKey)}
-                  </h3>
-                  <p className="mt-1.5 text-xs font-mono text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                    {t(p.specializationKey)}
-                  </p>
-                </div>
-              </div>
-              <p className="mt-5 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                {t(p.descriptionKey)}
-              </p>
-            </motion.a>
           ))}
         </div>
       </section>

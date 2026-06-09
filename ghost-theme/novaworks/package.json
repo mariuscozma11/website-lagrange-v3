@@ -1,14 +1,14 @@
 {
-  "name": "lagrange",
-  "description": "Lagrange Engineering blog theme. Matches the main lagrangeengineering.ro site: dark-first, dashed borders, monospace accents, industrial green.",
+  "name": "novaworks",
+  "description": "NovaWorks blog theme. Matches the main novaworks.ro site: dark-first, dashed borders, monospace accents, industrial green.",
   "version": "1.0.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
   "license": "MIT",
   "author": {
-    "name": "Lagrange Engineering",
-    "email": "office@lagrangeengineering.ro"
+    "name": "NovaWorks",
+    "email": "office@novaworks.ro"
   },
   "config": {
     "posts_per_page": 12,

@@ -65,7 +65,7 @@ export default function ComplianceBadge() {
             key={i}
             className="aspect-[2/1] border border-dashed flex flex-col items-center justify-center"
             style={{
-              borderColor: badgeShown(i) ? "#16a34a" : undefined,
+              borderColor: badgeShown(i) ? "#2563eb" : undefined,
               backgroundColor: badgeShown(i) ? "rgba(22,163,74,0.06)" : undefined,
               opacity: badgeShown(i) ? 1 : 0.25,
               transition: "border-color 0.3s, background-color 0.3s, opacity 0.3s",
@@ -74,7 +74,7 @@ export default function ComplianceBadge() {
             <span
               className="font-mono font-bold text-sm sm:text-base"
               style={{
-                color: badgeShown(i) ? "#16a34a" : "#737373",
+                color: badgeShown(i) ? "#2563eb" : "#737373",
                 transition: "color 0.3s",
               }}
             >
@@ -107,7 +107,7 @@ export default function ComplianceBadge() {
             >
               <span
                 style={{
-                  color: docShown(i) ? "#16a34a" : "#a3a3a3",
+                  color: docShown(i) ? "#2563eb" : "#a3a3a3",
                   transition: "color 0.3s",
                 }}
               >

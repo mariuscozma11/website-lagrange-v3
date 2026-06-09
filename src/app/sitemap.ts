@@ -1,13 +1,14 @@
 import { MetadataRoute } from "next";
 
-const baseUrl = "https://lagrangeengineering.ro";
+const baseUrl = "https://novaworks.ro";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const languages = ["en", "ro"];
 
-  // Static pages (blog lives on blog.lagrangeengineering.ro with its own sitemap)
+  // Static pages (blog lives on blog.novaworks.ro with its own sitemap)
   const staticPages = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/services/manufacturing", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/automation", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/ai", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/control-panels", priority: 0.9, changeFrequency: "monthly" as const },

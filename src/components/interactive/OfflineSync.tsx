@@ -174,7 +174,7 @@ export default function OfflineSync() {
           className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
           style={{
             backgroundColor: isDone
-              ? "#22c55e"
+              ? "#3b82f6"
               : isOffline
               ? "#f59e0b"
               : isSyncing

@@ -56,7 +56,7 @@ export default function FATChecklist() {
         <span
           className="text-[10px] font-mono font-bold"
           style={{
-            color: done(items.length - 1) ? "#16a34a" : "#737373",
+            color: done(items.length - 1) ? "#2563eb" : "#737373",
             transition: "color 0.3s",
           }}
         >
@@ -78,7 +78,7 @@ export default function FATChecklist() {
             <div
               className="w-5 h-5 rounded-sm border border-dashed flex items-center justify-center shrink-0"
               style={{
-                borderColor: done(i) ? "#16a34a" : undefined,
+                borderColor: done(i) ? "#2563eb" : undefined,
                 backgroundColor: done(i) ? "rgba(22,163,74,0.12)" : undefined,
                 transition: "border-color 0.3s, background-color 0.3s",
               }}
@@ -86,7 +86,7 @@ export default function FATChecklist() {
               <Check
                 className="w-3 h-3"
                 style={{
-                  color: "#16a34a",
+                  color: "#2563eb",
                   opacity: done(i) ? 1 : 0,
                   transition: "opacity 0.3s",
                 }}
@@ -104,7 +104,7 @@ export default function FATChecklist() {
             <span
               className="text-[9px] sm:text-[10px] font-mono"
               style={{
-                color: done(i) ? "#16a34a" : "#a3a3a3",
+                color: done(i) ? "#2563eb" : "#a3a3a3",
                 transition: "color 0.3s",
               }}
             >

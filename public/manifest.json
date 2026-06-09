@@ -1,6 +1,6 @@
 {
-  "name": "Lagrange Engineering",
-  "short_name": "Lagrange",
+  "name": "NovaWorks",
+  "short_name": "NovaWorks",
   "description": "Romanian technology company providing web development, custom applications, and high-quality digital solutions.",
   "start_url": "/",
   "display": "standalone",
@@ -30,5 +30,5 @@
   "lang": "ro",
   "dir": "ltr",
   "scope": "/",
-  "id": "lagrange-engineering"
+  "id": "novaworks"
 }

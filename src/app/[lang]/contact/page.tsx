@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/lagrangeengineering/", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578943962674", label: "Facebook" },
-  { icon: GitBranch, href: "https://git.lagrangeengineering.ro", label: "Git" },
+  { icon: GitBranch, href: "https://git.novaworks.ro", label: "Git" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/106594690/", label: "LinkedIn" },
 ];
 
@@ -21,8 +21,8 @@ const contactDetails = [
   {
     icon: Mail,
     labelKey: "contact.email.label",
-    value: "office@lagrangeengineering.ro",
-    href: "mailto:office@lagrangeengineering.ro",
+    value: "office@novaworks.ro",
+    href: "mailto:office@novaworks.ro",
   },
   {
     icon: Phone,

@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     const safeMessage = sanitize(message);
 
     const { error } = await resend.emails.send({
-      from: "Lagrange Engineering <contact@lagrangeengineering.ro>",
+      from: "NovaWorks <contact@novaworks.ro>",
       to: recipients,
       replyTo: email,
       subject: `New inquiry from ${safeName}${safeCompany ? ` (${safeCompany})` : ""}`,
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
 
           <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #f0f0f0;">
             <p style="margin: 0; color: #a3a3a3; font-size: 12px;">
-              Sent from lagrange.dev contact form
+              Sent from novaworks.ro contact form
             </p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { Play } from "lucide-react";
 
 const extractedFields = [
   { label: "Invoice", value: "INV-00482", color: "#3b82f6" },
-  { label: "Date", value: "2026-03-15", color: "#22c55e" },
+  { label: "Date", value: "2026-03-15", color: "#3b82f6" },
   { label: "Vendor", value: "Acme Corp.", color: "#8b5cf6" },
   { label: "Batch", value: "LOT-2026-04-A12", color: "#06b6d4" },
   { label: "Serial", value: "SN 8472-0031", color: "#ec4899" },
@@ -332,7 +332,7 @@ export default function OCRScan() {
           className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
           style={{
             backgroundColor:
-              phase === "extracted" ? "#22c55e" : phase === "scanning" ? "#3b82f6" : "#a3a3a3",
+              phase === "extracted" ? "#3b82f6" : phase === "scanning" ? "#3b82f6" : "#a3a3a3",
           }}
         />
         <span className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500">

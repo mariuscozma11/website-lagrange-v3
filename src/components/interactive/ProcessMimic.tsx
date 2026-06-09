@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
 
-const ON = "#16a34a";
+const ON = "#2563eb";
 const IDLE = "#9ca3af";
 const PIPE = "#6b7280";
 const FLUID = "#3b82f6";

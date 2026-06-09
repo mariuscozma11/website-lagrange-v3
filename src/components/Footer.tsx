@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Facebook, GitBranch, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,7 +10,7 @@ import { companyLinks } from "@/config/company";
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/lagrangeengineering/", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578943962674", label: "Facebook" },
-  { icon: GitBranch, href: "https://git.lagrangeengineering.ro", label: "Git" },
+  { icon: GitBranch, href: "https://git.novaworks.ro", label: "Git" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/106594690/", label: "LinkedIn" },
 ];
 
@@ -29,21 +28,8 @@ export default function Footer() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-4"
         >
-          <Link href="/">
-            <Image
-              src="/lagrange-black.png"
-              alt="Lagrange Engineering"
-              width={160}
-              height={40}
-              className="block dark:hidden"
-            />
-            <Image
-              src="/lagrange-white.png"
-              alt="Lagrange Engineering"
-              width={160}
-              height={40}
-              className="hidden dark:block"
-            />
+          <Link href="/" className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+            NovaWorks
           </Link>
 
           <p className="text-neutral-600 dark:text-neutral-400 text-sm">
@@ -160,7 +146,7 @@ export default function Footer() {
         className="mt-10 pt-6 border-t border-neutral-200 dark:border-neutral-800"
       >
         <p className="text-sm text-neutral-500 dark:text-neutral-500 text-center">
-          © 2026 Lagrange Engineering. All rights reserved.
+          © 2026 NovaWorks. All rights reserved.
         </p>
       </motion.div>
     </footer>

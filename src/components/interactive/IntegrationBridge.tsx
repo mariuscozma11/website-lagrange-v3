@@ -245,7 +245,7 @@ export default function IntegrationBridge() {
                 className={active ? "fill-primary-foreground" : "fill-neutral-500 dark:fill-neutral-400"}
                 style={{ fontSize: "10px", fontFamily: "ui-monospace, monospace", fontWeight: 700, letterSpacing: "0.1em", transition: "fill 0.4s" }}
               >
-                LAGRANGE
+                NOVAWORKS
               </text>
               <text
                 x={hubX}

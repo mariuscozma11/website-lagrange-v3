@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://lagrangeengineering.ro/sitemap.xml",
+    sitemap: "https://novaworks.ro/sitemap.xml",
   };
 }

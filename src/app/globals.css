@@ -76,8 +76,8 @@
     --card-foreground: oklch(0.141 0.005 285.823);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.141 0.005 285.823);
-    --primary: oklch(0.508 0.118 165.612);
-    --primary-foreground: oklch(0.979 0.021 166.113);
+    --primary: oklch(0.52 0.16 255);
+    --primary-foreground: oklch(0.97 0.02 255);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.967 0.001 286.375);
@@ -96,8 +96,8 @@
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.141 0.005 285.823);
-    --sidebar-primary: oklch(0.596 0.145 163.225);
-    --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
+    --sidebar-primary: oklch(0.55 0.16 255);
+    --sidebar-primary-foreground: oklch(0.97 0.02 255);
     --sidebar-accent: oklch(0.967 0.001 286.375);
     --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
     --sidebar-border: oklch(0.92 0.004 286.32);
@@ -111,8 +111,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.21 0.006 285.885);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.432 0.095 166.913);
-    --primary-foreground: oklch(0.979 0.021 166.113);
+    --primary: oklch(0.58 0.16 255);
+    --primary-foreground: oklch(0.97 0.02 255);
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.274 0.006 286.033);
@@ -130,8 +130,8 @@
     --chart-5: oklch(0.274 0.006 286.033);
     --sidebar: oklch(0.21 0.006 285.885);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.696 0.17 162.48);
-    --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
+    --sidebar-primary: oklch(0.62 0.17 255);
+    --sidebar-primary-foreground: oklch(0.97 0.02 255);
     --sidebar-accent: oklch(0.274 0.006 286.033);
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
@@ -169,14 +169,14 @@
   }
   /* Global caret color and selection styles */
   :root {
-    caret-color: oklch(0.508 0.118 165.612);
+    caret-color: oklch(0.52 0.16 255);
   }
   ::selection {
-    background-color: oklch(0.508 0.118 165.612);
+    background-color: oklch(0.52 0.16 255);
     color: white;
   }
   ::-moz-selection {
-    background-color: oklch(0.508 0.118 165.612);
+    background-color: oklch(0.52 0.16 255);
     color: white;
   }
 }

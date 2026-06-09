@@ -5,7 +5,7 @@ import { Play, Camera, MapPin, Fingerprint, Bell, Bluetooth, Nfc } from "lucide-
 
 const features = [
   { Icon: Camera, label: "Camera", color: "#3b82f6" },
-  { Icon: MapPin, label: "GPS", color: "#22c55e" },
+  { Icon: MapPin, label: "GPS", color: "#3b82f6" },
   { Icon: Fingerprint, label: "Biometrics", color: "#8b5cf6" },
   { Icon: Bell, label: "Push", color: "#f59e0b" },
   { Icon: Bluetooth, label: "Bluetooth", color: "#06b6d4" },
@@ -104,7 +104,7 @@ export default function NativeFeatures() {
           className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
           style={{
             backgroundColor: isDone
-              ? "#22c55e"
+              ? "#3b82f6"
               : activeIndex >= 0
               ? features[Math.min(activeIndex, features.length - 1)].color
               : "#a3a3a3",

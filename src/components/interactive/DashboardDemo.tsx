@@ -245,7 +245,7 @@ export default function DashboardDemo() {
           className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
           style={{
             backgroundColor: isDone
-              ? "#22c55e"
+              ? "#3b82f6"
               : isActive
               ? "hsl(var(--primary))"
               : "#a3a3a3",

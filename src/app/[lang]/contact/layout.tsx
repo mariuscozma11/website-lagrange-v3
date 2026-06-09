@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Lagrange Engineering. Let's discuss your project.",
+    "Get in touch with NovaWorks. Let's discuss your project.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

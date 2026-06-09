@@ -135,7 +135,7 @@ export default function DefectInspection() {
   const showVerdict = localT >= ANNOT_END && localT < SCENARIO_LEN - 200;
 
   const verdict = scenarioIdx === 2 ? "PASS" : "FAIL";
-  const verdictColor = verdict === "PASS" ? "#22c55e" : "#ef4444";
+  const verdictColor = verdict === "PASS" ? "#3b82f6" : "#ef4444";
   const verdictReason =
     scenarioIdx === 0
       ? "2 surface defects"
@@ -275,7 +275,7 @@ export default function DefectInspection() {
                 width: "66%",
                 height: "55%",
                 background:
-                  "linear-gradient(180deg, #14532d 0%, #15803d 100%)",
+                  "linear-gradient(180deg, #14532d 0%, #1d4ed8 100%)",
                 boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.3)",
               }}
             >
@@ -310,7 +310,7 @@ export default function DefectInspection() {
               PCB_SLOTS.map((slot, i) => {
                 const visible = annotT >= i * 150;
                 const isMissing = !slot.populated;
-                const color = isMissing ? "#ef4444" : "#22c55e";
+                const color = isMissing ? "#ef4444" : "#3b82f6";
                 return (
                   <div
                     key={`ann-${slot.id}`}
@@ -407,10 +407,10 @@ export default function DefectInspection() {
                         transition: "opacity 200ms ease-out",
                       }}
                     >
-                      <div className="absolute inset-x-0 top-0 h-[1.5px] bg-emerald-500" />
-                      <div className="absolute left-0 top-[-5px] w-[1.5px] h-[10px] bg-emerald-500" />
-                      <div className="absolute right-0 top-[-5px] w-[1.5px] h-[10px] bg-emerald-500" />
-                      <div className="absolute left-1/2 -translate-x-1/2 -top-5 px-1 py-[1px] rounded-sm font-mono text-[8px] text-white bg-emerald-500 whitespace-nowrap flex items-center gap-1">
+                      <div className="absolute inset-x-0 top-0 h-[1.5px] bg-blue-500" />
+                      <div className="absolute left-0 top-[-5px] w-[1.5px] h-[10px] bg-blue-500" />
+                      <div className="absolute right-0 top-[-5px] w-[1.5px] h-[10px] bg-blue-500" />
+                      <div className="absolute left-1/2 -translate-x-1/2 -top-5 px-1 py-[1px] rounded-sm font-mono text-[8px] text-white bg-blue-500 whitespace-nowrap flex items-center gap-1">
                         <Check className="w-2 h-2" /> {d.label}
                       </div>
                     </div>
@@ -429,10 +429,10 @@ export default function DefectInspection() {
                       transition: "opacity 200ms ease-out",
                     }}
                   >
-                    <div className="absolute inset-y-0 left-0 w-[1.5px] bg-emerald-500" />
-                    <div className="absolute top-0 left-[-5px] h-[1.5px] w-[10px] bg-emerald-500" />
-                    <div className="absolute bottom-0 left-[-5px] h-[1.5px] w-[10px] bg-emerald-500" />
-                    <div className="absolute top-1/2 -translate-y-1/2 left-2 px-1 py-[1px] rounded-sm font-mono text-[8px] text-white bg-emerald-500 whitespace-nowrap flex items-center gap-1">
+                    <div className="absolute inset-y-0 left-0 w-[1.5px] bg-blue-500" />
+                    <div className="absolute top-0 left-[-5px] h-[1.5px] w-[10px] bg-blue-500" />
+                    <div className="absolute bottom-0 left-[-5px] h-[1.5px] w-[10px] bg-blue-500" />
+                    <div className="absolute top-1/2 -translate-y-1/2 left-2 px-1 py-[1px] rounded-sm font-mono text-[8px] text-white bg-blue-500 whitespace-nowrap flex items-center gap-1">
                       <Check className="w-2 h-2" /> {d.label}
                     </div>
                   </div>

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 const supportedLanguages = ["en", "ro"] as const;
 type SupportedLanguage = (typeof supportedLanguages)[number];
 
-const baseUrl = "https://lagrangeengineering.ro";
+const baseUrl = "https://novaworks.ro";
 
 export async function generateMetadata({
   params,

@@ -26,8 +26,8 @@ export default function PostDetail({ post, language, backPath, backLabel }: Post
       : undefined,
     publisher: {
       "@type": "Organization",
-      name: "Lagrange Engineering",
-      url: "https://lagrangeengineering.ro",
+      name: "NovaWorks",
+      url: "https://novaworks.ro",
     },
   };
 

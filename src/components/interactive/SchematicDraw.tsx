@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 
-const ACCENT = "#16a34a";
+const ACCENT = "#2563eb";
 const IDLE = "#a3a3a3";
 
 const RAIL_TOP_Y = 122;
