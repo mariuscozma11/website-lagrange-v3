@@ -1,7 +1,7 @@
 /* ==========================================================================
    NovaWorks — Ghost theme
-   Matches novaworks.ro: dark-first, dashed borders, mono accents,
-   industrial green. Light + dark via prefers-color-scheme.
+   Matches novaworks.ro: light, dashed borders, mono accents,
+   industrial blue.
    ========================================================================== */
 
 :root {
@@ -13,7 +13,7 @@
   --border-dashed: #d4d4d8;
   --card: #ffffff;
   --card-hover: #fafafa;
-  --primary: #1f6fd6;
+  --primary: #2563eb;
   --primary-fg: #ffffff;
   --code-bg: #f4f4f5;
   --radius: 10px;
